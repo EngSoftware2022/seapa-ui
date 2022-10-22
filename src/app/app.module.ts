@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NewUserComponent } from './pages/new-user/new-user.component';
+import { FaqComponent } from './pages/faq/faq.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewUserComponent
+    NewUserComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
