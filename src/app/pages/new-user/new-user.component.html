@@ -1,0 +1,78 @@
+<H1>Novo Usuário</H1>
+
+<div class="container">
+    <form [formGroup]="formNewUser" (ngSubmit)="onSubmit()">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Nome*</label>
+                    <input type="text" class="form-control" id="formInputName" placeholder="Nome" formControlName="name" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Sobrenome*</label>
+                    <input type="text" class="form-control" id="formInputLastName" placeholder="Sobrenome" formControlName="lastName" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Data de Nascimento*</label>
+                    <input type="date" class="form-control" id="formInputBirthday" placeholder="Data de Nascimento" formControlName="birthday" required>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Usuário*</label>
+                    <input type="text" class="form-control" id="formInputUser" placeholder="Usuário" formControlName="user" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Senha*</label>
+                    <input type="password" class="form-control" id="formInputPassword" placeholder="Senha" formControlName="password" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Confirmar Senha*</label>
+                    <input type="password" class="form-control" id="formInputConfirmPassword" placeholder="Confirmar Senha">
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-end">
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">CPF*</label>
+                    <input type="text" class="form-control" id="formInputCPF" placeholder="CPF" formControlName="cpf" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Endereço de email</label>
+                    <input type="email" class="form-control" id="buttonFormCancel" aria-describedby="emailHelp" placeholder="Seu email" formControlName="email" required>
+                    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com
+                        ninguém.</small>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Telefone*</label>
+                    <input type="text" class="form-control" id="buttonFormConfirm" placeholder="Telefone" formControlName="telephone" required>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col">
+            <button type="button" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success" (click)="onSubmit()" >Confirmar</button>
+        </div>
+    </div>
+</div>
