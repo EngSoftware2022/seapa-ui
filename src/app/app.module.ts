@@ -9,6 +9,8 @@ import { environment } from '../environments/environment';
 import { NewUserComponent } from './pages/new-user/new-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FaqComponent } from './pages/faq/faq.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { FaqComponent } from './pages/faq/faq.component';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
