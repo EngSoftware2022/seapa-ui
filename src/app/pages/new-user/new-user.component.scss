@@ -1,0 +1,30 @@
+h1 {
+    color: #FCB041;
+    font-weight: bold;
+    padding-top: 50px;
+    padding-left: 25px;
+}
+
+.form-group {
+    padding: 25px;
+}
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #FCB041 !important;
+    border: #FCB041;
+}
+
+.btn-outline-danger, .btn-outline-danger:hover,  .btn-outline-danger:active,  .btn-outline-danger:visited {
+    border: #FCB041;
+    color: #FCB041;
+}
+
+.btn-outline-danger:hover {
+    background-color: #FCB041 ;
+    color: white;
+}
+
+.buttons {
+    margin: 20px;
+}
