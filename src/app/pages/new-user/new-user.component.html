@@ -1,6 +1,7 @@
-<H1>Novo Usuário</H1>
 
 <div class="container">
+    <h1>Novo Usuário</h1>
+
     <form [formGroup]="formNewUser" (ngSubmit)="onSubmit()">
         <div class="row align-items-start">
             <div class="col">
@@ -53,8 +54,6 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Endereço de email</label>
                     <input type="email" class="form-control" id="buttonFormCancel" aria-describedby="emailHelp" placeholder="Seu email" formControlName="email" required>
-                    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com
-                        ninguém.</small>
                 </div>
             </div>
             <div class="col">
@@ -65,14 +64,11 @@
             </div>
         </div>
     </form>
-</div>
-<div class="container">
-    <div class="row align-items-center">
-        <div class="col">
+
+    <div class="row align-items-end">
+        <div class="buttons">
             <button type="button" class="btn btn-outline-danger">Cancelar</button>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-success" (click)="onSubmit()" >Confirmar</button>
+            <button type="button" class="btn btn-primary" (click)="onSubmit()" >Confirmar</button>
         </div>
     </div>
 </div>
