@@ -11,12 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FaqComponent } from './pages/faq/faq.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewUserComponent,
-    FaqComponent
+    FaqComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
