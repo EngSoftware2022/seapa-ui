@@ -14,14 +14,14 @@ export class NewUserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private userService: UsersService) { }
   createNewUser(user: User) {
     this.formNewUser =  this.formBuilder.group({
-      name: ['', Validators.required],
+      firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      user: ['', Validators.required],
+      userName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
       cpf: ['', Validators.required],
       birthday: ['', Validators.required],
-      telephone: ['', Validators.required]
+      phone: ['', Validators.required]
     })
   }
 
@@ -33,6 +33,7 @@ export class NewUserComponent implements OnInit {
     console.log(this.formNewUser?.value)
     this.userService.createUser(this.formNewUser.value).subscribe((res) => {
       console.log(res);
+      alert("Usuário criado com sucesso!");
     })
   }
 

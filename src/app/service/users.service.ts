@@ -8,7 +8,7 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
 })
 export class UsersService {
   // Define API
-  apiURL = 'http://localhost:3000';
+  apiURL = 'https://betweenfriend-user-manager.herokuapp.com/api/';
   constructor(private http: HttpClient) {}
   /*========================================
     CRUD Methods for consuming RESTful API
@@ -24,7 +24,7 @@ export class UsersService {
   createUser(user: any): Observable<any> {
     return this.http
       .post<any>(
-        this.apiURL + '/user',
+        this.apiURL + '/register',
         JSON.stringify(user),
         this.httpOptions
       )
