@@ -12,13 +12,15 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FriendRequestComponent } from './pages/friend-request/friend-request.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewUserComponent,
     FaqComponent,
-    NavbarComponent
+    NavbarComponent,
+    FriendRequestComponent
   ],
   imports: [
     BrowserModule,
