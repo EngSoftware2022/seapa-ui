@@ -2,8 +2,47 @@
     <h1>Amizades</h1>
 
     <div class="form-outline mb-4">
-        <input type="search" class="form-control" id="datatable-search-input">
+        <input type="search" class="form-control" id="datatable-search-input"
+            placeholder="Busque aqui sua nova amizade">
     </div>
-    <div id="datatable"></div>
+    <div id="datatable">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sobrenome</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of friendList; index as i">
+                        <td>
+                            {{row.username}}
+                        </td>
+                        <td>
+                            {{row.firstName}}
+                        </td>
+                        <td>
+                            {{row.lastName}}
+                        </td>
+                        <td>
+                            <div *ngIf="row.friend === 0">
+                                <i class="bi bi-person-check-fill"></i>
+                            </div>
+                            <div *ngIf="row.friend === 1">
+                                <i class="bi bi-person-dash-fill"></i>
+                            </div>
+                            <div *ngIf="row.friend === 2">
+                                <i class="bi bi-check"></i>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
     <a href="/"><button type="button" class="btn btn-outline-warning" id="b1">Voltar</button></a>
 </div>
