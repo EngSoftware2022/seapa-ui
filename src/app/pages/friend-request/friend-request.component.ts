@@ -1,4 +1,7 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { UsersService } from 'src/app/service/users.service';
 
 @Component({
   selector: 'app-friend-request',
@@ -7,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendRequestComponent implements OnInit {
 
-
   friendList: any[] | undefined;
+  formBusca: any;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private userService: UsersService) {
+    this.formBusca =  this.formBuilder.group({
+      userName: ['', Validators.required],
+    })
+  }
 
   ngOnInit(): void {
     this.friendList = [{
@@ -31,5 +38,11 @@ export class FriendRequestComponent implements OnInit {
       friend: 2
     }]
   }
+
+  onSubmit() {
+    console.log(this.formBusca.userName)
+    this.friendList?.forEach(this.friendList?.pop);
+    this.friendList?.push(this.userService.findUser(this.formBusca.userName));
+    }
 
 }

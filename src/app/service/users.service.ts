@@ -46,5 +46,11 @@ export class UsersService {
       return errorMessage;
     });
   }
+
+  findUser(userName : string){
+    return this.http.get<any>(this.apiURL+'/getByName/'+userName
+    )
+    .pipe(retry(1), catchError(this.handleError));
+  }
 }
 

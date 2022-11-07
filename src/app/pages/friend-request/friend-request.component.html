@@ -1,10 +1,19 @@
 <div class="container">
     <h1>Amizades</h1>
 
-    <div class="form-outline mb-4">
-        <input type="search" class="form-control" id="datatable-search-input"
-            placeholder="Busque aqui sua nova amizade">
+    <div class="container">
+        <div class = "row">
+            <div class = "col-11">
+                <input type="search" class="form-control" id="datatable-search-input"
+                placeholder="Busque aqui sua nova amizade" formControlName="userName" required="true">
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-primary" (click)="onSubmit()" >Pesquisar</button>
+             </div>
+        </div>
     </div>
+    <br>
+    <br>
     <div id="datatable">
         <div class="table-responsive">
             <table class="table">
