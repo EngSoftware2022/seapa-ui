@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FriendRequestComponent } from './pages/friend-request/friend-request.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FriendRequestComponent } from './pages/friend-request/friend-request.co
     NewUserComponent,
     FaqComponent,
     NavbarComponent,
-    FriendRequestComponent
+    FriendRequestComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
