@@ -4,8 +4,10 @@
     <div class="container">
         <div class = "row">
             <div class = "col-11">
-                <input type="search" class="form-control" id="datatable-search-input"
-                placeholder="Busque aqui sua nova amizade" formControlName="userName" required="true">
+                <form [formGroup]="formBusca" >
+                    <input type="search" class="form-control" id="datatable-search-input"
+                    placeholder="Busque aqui sua nova amizade" formControlName="userName" required="true">
+                </form>
             </div>
             <div class="col-1">
                 <button type="button" class="btn btn-primary" (click)="onSubmit()" >Pesquisar</button>

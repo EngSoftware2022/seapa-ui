@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -8,14 +9,27 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private toastrService: ToastrService) { }
+  fbLogin!: any;
+
+  constructor(private toastrService: ToastrService,
+    private formBuilder: FormBuilder,
+    ) { }
 
   ngOnInit(): void {
-    this.toastrService.success('Message Success!', 'Title Success!');
+    this.initForm();
   }
 
   onSubmit() {
-    
+    console.log(this.fbLogin.value)
+
+    localStorage.setItem('logged', 'true');
+  }
+
+  initForm() {
+    this.fbLogin =  this.formBuilder.group({
+      login: ['', Validators.required],
+      password: ['', Validators.required],
+    })
   }
 
 }

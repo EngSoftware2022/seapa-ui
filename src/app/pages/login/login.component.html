@@ -1,10 +1,10 @@
-<form action="action_page.php" method="post">
+<form action="action_page.php" [formGroup]="fbLogin" method="post">
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Entre com seu usuário" name="uname" required>
+    <input type="text" placeholder="Entre com seu usuário" formControlName="user"  name="uname" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Entre com sua senha" name="psw" required>
+    <input type="password" placeholder="Entre com sua senha" formControlName="password"  name="psw" required>
 
     <button type="button" class="btn btn-primary" (click)="onSubmit()" >Login</button>
   </div>

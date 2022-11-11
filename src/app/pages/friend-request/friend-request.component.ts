@@ -1,7 +1,8 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UsersService } from 'src/app/service/users.service';
+import { UsersService } from 'src/app/service/user/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-friend-request',
@@ -13,13 +14,26 @@ export class FriendRequestComponent implements OnInit {
   friendList: any[] | undefined;
   formBusca: any;
 
-  constructor(private formBuilder: FormBuilder, private userService: UsersService) {
+  constructor(private formBuilder: FormBuilder, 
+    private router:Router,
+    private userService: UsersService) {
+
+  }
+
+  initForm() {
     this.formBusca =  this.formBuilder.group({
       userName: ['', Validators.required],
     })
   }
 
   ngOnInit(): void {
+    this.initForm();
+
+    // implementação para validar o acesso
+    // if (localStorage.getItem('logged') === null) {
+    //   this.router.navigate([''])
+    // }
+
     this.friendList = [{
       username: "aamgoulart",
       firstName: "Amanda",

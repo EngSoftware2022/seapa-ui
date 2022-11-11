@@ -15,6 +15,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FriendRequestComponent } from './pages/friend-request/friend-request.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -40,6 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
       closeButton: true,
       progressBar: true,
     }),
+    NgxMaskModule.forRoot(maskConfig),    
     HttpClientModule,
     ReactiveFormsModule,
     MatFormFieldModule,
