@@ -15,7 +15,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FriendRequestComponent } from './pages/friend-request/friend-request.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { ExtratoComponent } from './pages/extrato/extrato.component'
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -28,7 +29,8 @@ const maskConfig: Partial<IConfig> = {
     FaqComponent,
     NavbarComponent,
     FriendRequestComponent,
-    LoginComponent
+    LoginComponent,
+    ExtratoComponent
   ],
   imports: [
     BrowserModule,

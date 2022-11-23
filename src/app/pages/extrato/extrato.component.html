@@ -1,0 +1,27 @@
+<div class = "container">
+    <h1>Extrato</h1>
+    <br>
+    <br>
+    <div id="datatable">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Saldo</th>
+                        <th scope="col">Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of saldos; index as i">
+                        <td>
+                            {{row.saldo}}
+                        </td>
+                        <td>
+                            {{row.data}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
