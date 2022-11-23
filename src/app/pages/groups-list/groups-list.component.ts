@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupsListComponent implements OnInit {
 
-  groupList = []
+  groupList = [ {name: 'Time da empresa', team: ['julia', 'ana']}]
 
   constructor() { }
 

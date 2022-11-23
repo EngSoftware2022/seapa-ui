@@ -1,14 +1,20 @@
 <div class="container">
-    <h1>Meus grupos</h1>
 
     <div class="container">
-        <button>Novo grupo</button>
+        <div class="row">
+            <div class="col">
+                <h1>Meus grupos</h1>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-primary" >Novo grupo</button>
+            </div>
+        </div>
     </div>
     <br>
     <br>
     <div id="datatable">
         <div class="table-responsive">
-            <!-- <table class="table">
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Nome do grupo</th>
@@ -19,15 +25,15 @@
                 <tbody>
                     <tr *ngFor="let row of groupList; index as i">
                         <td>
-                            {{row.username}}
+                            {{row.name}}
                         </td>
                         <td>
-                            {{row.firstName}}
+                            {{row.team}}
                         </td>
                     </tr>
 
                 </tbody>
-            </table> -->
+            </table>
         </div>
     </div>
     <a href="/"><button type="button" class="btn btn-outline-warning" id="b1">Voltar</button></a>

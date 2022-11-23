@@ -6,6 +6,7 @@ import { FriendRequestComponent } from './pages/friend-request/friend-request.co
 import { LoginComponent } from './pages/login/login.component';
 import { ExtratoComponent } from './pages/extrato/extrato.component';
 import { GroupsFormComponent } from './pages/groups-form/groups-form.component';
+import { GroupsListComponent } from './pages/groups-list/groups-list.component';
 
 const routes: Routes = [
   { path: 'new-user', component: NewUserComponent },
@@ -13,8 +14,9 @@ const routes: Routes = [
   { path: 'friend-request', component: FriendRequestComponent},
   { path: 'extrato', component: ExtratoComponent},
   { path: '', component: LoginComponent},
-  { path: 'new-group', component: GroupsFormComponent}
-
+  { path: 'new-group', component: GroupsFormComponent},
+  { path:  'group', component: GroupsListComponent }
+  
 ];
 
 @NgModule({
