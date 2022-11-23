@@ -1,80 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <style>
-        header{
-            margin-left: 120px;
-            margin-top: 120px;
-            
-        }
+<h1 style="font-weight: bold; font-size: 40px;">FAQ</h1>
 
-        h1{
-            color: #FCB041;
-        }
+<div class="faq">
+    <h1>
+        <ol>
+            <li class="t1" style="font-size: 32px;">Como funciona?</li>
+            <p>Aqui você consegue realizar apostas entre seus amigos, seja apostas de grandes campeonatos, ou criar apostas personalizadas.</p>
 
-        li.t1{
-            margin-left: 98px;
-            margin-top: 118px;
-        }
+            <li class="t2" style="font-size: 32px;">Como ser aceito</li>
+            <p>Ao se cadastrar, você está plenamente ciente de que existe risco de perder dinheiro ao jogar e assume responsabilidades por tais perdas.</p>
 
-        li.t2{
-            margin-left: 98px;
-            margin-top: 30px;
-        }
-
-        li.t3{
-            margin-left: 98px;
-            margin-top: 30px;
-        }
-
-        p{
-            margin-top: 10px;
-            margin-left: 100px;
-            font-family: 'Montserrat';
-            font-size: 23px;
-            color: #0E0801;
-        }
-
-        div.botao{
-            margin-left: 120px;
-            margin-top: 230px;
-        }
-
-        #b1{
-            border-radius: 37px;
-            padding: 15px 36px;
-            align-items: center;
-            gap: 10px;
-        }
-
-    </style>
-    <title>FAQ</title>
-</head>
-<body>
-    <header>
-        <h1 style="font-weight: bold; font-size: 40px;">FAQ</h1>
-    </header>
-
-    <div class="faq">
-        <h1>
-            <ol>
-                <li class="t1" style="font-size: 32px;">Como funciona?</li>
-                <p>Aqui você consegue realizar apostas entre seus amigos, seja apostas de grandes campeonatos, ou criar apostas personalizadas.</p>
-
-                <li class="t2" style="font-size: 32px;">Como ser aceito</li>
-                <p>Ao se cadastrar, você está plenamente ciente de que existe risco de perder dinheiro ao jogar e assume responsabilidades por tais perdas.</p>
-
-                <li class="t3" style="font-size: 32px;">Qual a idade mínima para cadastro?</li>
-                <p>É necessário ter acima de 18 anos completos.</p>
-            </ol>
-        </h1>
-    </div>
+            <li class="t3" style="font-size: 32px;">Qual a idade mínima para cadastro?</li>
+            <p>É necessário ter acima de 18 anos completos.</p>
+        </ol>
+    </h1>
 
     <div class="botao">
-        <a href="/"><button type="button"  class="btn btn-outline-warning" id="b1">Voltar</button></a>
+        <button type="button"  id="btnBack" class="btn btn-outline-warning" [routerLink]="['/']">Voltar</button>
     </div>
-
     
-</body>
-</html>
+</div>
+
