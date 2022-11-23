@@ -22,6 +22,15 @@ $theme-colors: (
    color: white;
 }
 
+.ng-select .ng-select-container {
+   min-height: 40px;
+ }
+ 
+ .ng-select.ng-select-single .ng-select-container {
+   height: 40px;
+ }
+
 // regular style toast
 @import '~ngx-toastr/toastr';
 
+@import "~@ng-select/ng-select/themes/material.theme.css"

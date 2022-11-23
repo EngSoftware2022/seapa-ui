@@ -1,7 +1,23 @@
 <div class="container">
-    <!-- <form [formGroup]="formBusca" >
-        <input type="search" class="form-control" id="datatable-search-input"
-        placeholder="Identifique o nome do seu grupo" formControlName="name" required="true">
-    </form> -->
-
+    <h1>Novo grupo</h1>
+    <form [formGroup]="formBusca">
+        <div class="row">
+            <div class="col">
+                <label>Nome do grupo:</label>
+                <input type="search" class="form-control" id="datatable-search-input"
+                    placeholder="Identifique o nome do seu grupo" formControlName="nomeEquipe" required="true">
+            </div>
+            <div class="col">
+                <label>Participantes:</label>
+                <ng-select [items]="cars" bindLabel="name" bindValue="id" formControlName="teams">
+                </ng-select>
+            </div>
+        </div>
+    </form>
+    <div class="row align-items-end">
+        <div class="buttons">
+            <button type="button" class="btn btn-outline-danger">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="onSubmit()" >Salvar</button>
+        </div>
+    </div>
 </div>
