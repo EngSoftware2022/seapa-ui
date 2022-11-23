@@ -16,7 +16,9 @@ import { FriendRequestComponent } from './pages/friend-request/friend-request.co
 import { LoginComponent } from './pages/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { ExtratoComponent } from './pages/extrato/extrato.component'
+import { ExtratoComponent } from './pages/extrato/extrato.component';
+import { GroupsListComponent } from './pages/groups-list/groups-list.component';
+import { GroupsFormComponent } from './pages/groups-form/groups-form.component'
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -30,7 +32,9 @@ const maskConfig: Partial<IConfig> = {
     NavbarComponent,
     FriendRequestComponent,
     LoginComponent,
-    ExtratoComponent
+    ExtratoComponent,
+    GroupsListComponent,
+    GroupsFormComponent
   ],
   imports: [
     BrowserModule,

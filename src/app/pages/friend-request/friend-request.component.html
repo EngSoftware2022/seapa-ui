@@ -40,13 +40,16 @@
                         </td>
                         <td>
                             <div *ngIf="row.friend === 0">
-                                <i class="bi bi-person-check-fill"></i>
+                                <i class="bi bi-person-check-fill"  data-toggle="tooltip" data-placement="top" title="Adicionar amigo"></i>
                             </div>
                             <div *ngIf="row.friend === 1">
-                                <i class="bi bi-person-dash-fill"></i>
+                                <i class="bi bi-person-dash-fill" ></i>
                             </div>
                             <div *ngIf="row.friend === 2">
                                 <i class="bi bi-check"></i>
+                            </div>
+                            <div *ngIf="row.friend === 2">
+                                <i class="bi bi-people-fill"></i>
                             </div>
                         </td>
                     </tr>
