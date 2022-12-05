@@ -25,6 +25,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FriendsSolicitationComponent } from './components/friends-solicitation/friends-solicitation.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -41,6 +43,7 @@ const maskConfig: Partial<IConfig> = {
     ExtratoComponent,
     GroupsListComponent,
     GroupsFormComponent,
+    FriendsSolicitationComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ const maskConfig: Partial<IConfig> = {
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

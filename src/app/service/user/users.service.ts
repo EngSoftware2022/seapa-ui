@@ -22,7 +22,7 @@ export class UsersService {
   getAll(): Observable<any> {
     return this.http
       .get<any>(
-        this.apiURL + 'usuarios',
+        this.apiURL,
       )
   }
 

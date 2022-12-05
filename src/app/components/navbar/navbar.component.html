@@ -6,8 +6,8 @@
     <h1>BetWeenFriends</h1>
     <span class="menu-spacer"></span>
     <div class="listNavbar">
-      <a mat-button [routerLink]="'/new-user'"> Novo Usuário </a>
-      <a mat-button [routerLink]="''"> Login </a>
+      <a mat-button *ngIf="!userId"[routerLink]="'/new-user'"> Novo Usuário </a>
+      <a mat-button *ngIf="!userId" [routerLink]="''"> Login </a>
       <a mat-button [routerLink]="'/faq'"> FAQ </a>
     </div>
   </mat-toolbar-row>
@@ -15,21 +15,18 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <mat-nav-list *ngIf="userId">
-
-      <a mat-list-item [routerLink]="'/login'"> Login </a>
-      <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>
-
-    </mat-nav-list>
     <mat-nav-list *ngIf="!userId">
 
-      <a mat-list-item [routerLink]="'/accounts'"> Accounts </a>
-      <a mat-list-item [routerLink]="'/create-account'"> Create Account </a>
-      <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
-      <a mat-list-item [routerLink]="'/create-contact'"> Create Contact </a>
-      <a mat-list-item [routerLink]="'/activities'"> Activities </a>
-      <a mat-list-item [routerLink]="'/create-activity'"> Create Activity </a>
-      <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>
+      <a mat-list-item [routerLink]="''"> Login </a>
+      <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Fechar</a>
+
+    </mat-nav-list>
+    <mat-nav-list *ngIf="userId">
+
+      <a mat-list-item (click)="openNewFriend()"> Adicionar amigo </a>
+      <a mat-list-item (click)="openSolicitation()"> Ver solicitações </a>
+
+      <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Fechar</a>
 
     </mat-nav-list>
   </mat-sidenav>

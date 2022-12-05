@@ -12,6 +12,7 @@ import { UsersService } from 'src/app/service/user/users.service';
 export class LoginComponent implements OnInit {
 
   fbLogin!: any;
+  isLogin: any = false;
 
   constructor(private toastrService: ToastrService,
     private formBuilder: FormBuilder,
@@ -28,7 +29,9 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.fbLogin.get('login').value, this.fbLogin.get('password').value).subscribe((res: any) => {
       localStorage.setItem('logged', 'true');
       localStorage.setItem('userId', res);
-      this.router.navigate([]);
+      window.location.reload();
+      this.router.navigate(['extrato']);
+      this.isLogin = true;
     })
 
   }

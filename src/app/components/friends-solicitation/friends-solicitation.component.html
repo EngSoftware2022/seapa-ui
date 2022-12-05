@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Minhas solicitações</h2>
+<mat-dialog-content class="mat-typography">
+    <div id="datatable">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">User</th>
+                        <th scope="col">Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of friendSolicitationList; index as i">
+                        <td>
+                            {{row.id}}
+                        </td>
+                        <td>
+                            <button class="bi bi-check"  data-toggle="tooltip" data-placement="top" (click)="acept(row.id)" title="Adicionar amigo"></button>
+                            <button class="bi bi-x-lg"  data-toggle="tooltip" data-placement="top" (click)="reject(row.id)" title="Adicionar amigo"></button>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
+</mat-dialog-actions>
