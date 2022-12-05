@@ -7,10 +7,16 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  userId!: any;
+  showFiller = false;
+
+
   constructor() { }
 
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('userId')
+    console.log(this.userId)
   }
 
 

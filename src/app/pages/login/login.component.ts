@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UsersService } from 'src/app/service/user/users.service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private toastrService: ToastrService,
     private formBuilder: FormBuilder,
+    private userService: UsersService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -21,8 +25,12 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.fbLogin.value)
+    this.userService.login(this.fbLogin.get('login').value, this.fbLogin.get('password').value).subscribe((res: any) => {
+      localStorage.setItem('logged', 'true');
+      localStorage.setItem('userId', res);
+      this.router.navigate([]);
+    })
 
-    localStorage.setItem('logged', 'true');
   }
 
   initForm() {

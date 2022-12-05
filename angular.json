@@ -88,7 +88,10 @@
             },
             "development": {
               "browserTarget": "seapa-ui:build:development"
-            }
+            },
+            "options": {
+              "browserTarget": "seapa-ui:build",
+              "proxyConfig": "./proxy.conf.json"
           },
           "defaultConfiguration": "development"
         },
@@ -128,4 +131,4 @@
     }
   },
   "defaultProject": "seapa-ui"
-}
+}}

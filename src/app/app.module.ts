@@ -21,6 +21,10 @@ import { GroupsListComponent } from './pages/groups-list/groups-list.component';
 import { GroupsFormComponent } from './pages/groups-form/groups-form.component'
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -36,7 +40,7 @@ const maskConfig: Partial<IConfig> = {
     LoginComponent,
     ExtratoComponent,
     GroupsListComponent,
-    GroupsFormComponent
+    GroupsFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,11 @@ const maskConfig: Partial<IConfig> = {
     MatFormFieldModule,
     FormsModule,
     NgSelectModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
