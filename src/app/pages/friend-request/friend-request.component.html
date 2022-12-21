@@ -1,56 +1,34 @@
-<div class="container">
-    <h1>Amizades</h1>
-
-    <div class="container">
-        <div class = "row">
-            <div class = "col-11">
-                <form [formGroup]="formBusca" >
-                    <input type="search" class="form-control" id="datatable-search-input"
-                    placeholder="Busque aqui sua nova amizade" formControlName="userName" required="true">
-                </form>
+<h2 mat-dialog-title>Nova amizade</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="formBusca" >
+        <div class="row">
+            <div class="col">
+                <input type="search" class="form-control" id="datatable-search-input"
+                placeholder="Buscar amigo" formControlName="userName" required="true">           
             </div>
-            <div class="col-1">
+            <div class="col">
                 <button type="button" class="btn btn-primary" (click)="onSubmit()" >Pesquisar</button>
-             </div>
+            </div>
         </div>
-    </div>
-    <br>
-    <br>
+
+    </form>
+
     <div id="datatable">
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">User</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Sobrenome</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col">Adicionar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let row of friendList; index as i">
                         <td>
-                            {{row.username}}
+                            {{row.nomeUsuario}}
                         </td>
                         <td>
-                            {{row.firstName}}
-                        </td>
-                        <td>
-                            {{row.lastName}}
-                        </td>
-                        <td>
-                            <div *ngIf="row.friend === 0">
-                                <i class="bi bi-person-check-fill"  data-toggle="tooltip" data-placement="top" title="Adicionar amigo"></i>
-                            </div>
-                            <div *ngIf="row.friend === 1">
-                                <i class="bi bi-person-dash-fill" ></i>
-                            </div>
-                            <div *ngIf="row.friend === 2">
-                                <i class="bi bi-check"></i>
-                            </div>
-                            <div *ngIf="row.friend === 2">
-                                <i class="bi bi-people-fill"></i>
-                            </div>
+                            <button class="bi bi-person-check-fill"  data-toggle="tooltip" data-placement="top" (click)="sendRequestFriend(row.id)" title="Adicionar amigo"></button>
                         </td>
                     </tr>
 
@@ -58,5 +36,7 @@
             </table>
         </div>
     </div>
-    <a href="/"><button type="button" class="btn btn-outline-warning" id="b1">Voltar</button></a>
-</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
+</mat-dialog-actions>

@@ -1,0 +1,10 @@
+{
+    "/api": {
+        "target": "https://between-friends-api.herokuapp.com/seapa/",
+        "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+}

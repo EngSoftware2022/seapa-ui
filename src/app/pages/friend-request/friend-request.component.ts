@@ -1,8 +1,7 @@
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/service/user/users.service';
-import { Router } from '@angular/router';
+import { FriendsService } from 'src/app/service/friends/friends.service';
 
 @Component({
   selector: 'app-friend-request',
@@ -13,10 +12,11 @@ export class FriendRequestComponent implements OnInit {
 
   friendList: any[] | undefined;
   formBusca: any;
+  userId: any;
 
   constructor(private formBuilder: FormBuilder, 
-    private router:Router,
-    private userService: UsersService) {
+    private userService: UsersService,
+    private friendService: FriendsService) {
 
   }
 
@@ -27,36 +27,31 @@ export class FriendRequestComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('userId')
     this.initForm();
+    this.getAllUsers();
 
-    // implementação para validar o acesso
-    // if (localStorage.getItem('logged') === null) {
-    //   this.router.navigate([''])
-    // }
-
-    this.friendList = [{
-      username: "aamgoulart",
-      firstName: "Amanda",
-      lastName: "Goulart",
-      friend: 1
-    },
-    {
-      username: "aamgoulart",
-      firstName: "Amanda",
-      lastName: "Goulart",
-      friend: 0
-    }, {
-      username: "aamgoulart",
-      firstName: "Amanda",
-      lastName: "Goulart",
-      friend: 2
-    }]
   }
 
   onSubmit() {
-    console.log(this.formBusca.userName)
-    this.friendList?.forEach(this.friendList?.pop);
-    this.friendList?.push(this.userService.findUser(this.formBusca.userName));
-    }
+    console.log(this.formBusca.get('userName').value)
+    this.userService.findUser(this.formBusca.get('userName').value).subscribe((res:any) => {
+      this.friendList = res;
+      console.log(res)
+    })
+  }
+
+  getAllUsers() {
+    this.userService.getAll().subscribe((res:any) => {
+      this.friendList = res;
+      console.log(res)
+    });
+  }
+
+  sendRequestFriend(friendId: number) {
+    this.friendService.sendRequestToUser(this.userId,friendId).subscribe((res:any) => {
+      console.log(res)
+    })
+  }
 
 }

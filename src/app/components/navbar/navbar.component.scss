@@ -1,0 +1,22 @@
+.mat-toolbar.mat-primary{
+    background: #FCB041;
+}
+
+.btnSidebar {
+    border: #FCB041;
+    background-color: #FCB041;
+}
+
+.listNavbar {
+    padding-left: 20px;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+::ng-deep {
+    .mat-drawer-inner-container {
+        width: 300px  !important;
+    }
+}
