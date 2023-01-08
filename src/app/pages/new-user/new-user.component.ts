@@ -3,6 +3,7 @@ import { User } from '../../model/user/user';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UsersService } from 'src/app/service/user/users.service';
+import { ExtratosService } from 'src/app/service/extrato/extratos.service';
 
 @Component({
   selector: 'app-new-user',
@@ -14,7 +15,8 @@ export class NewUserComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, 
     private toastrService: ToastrService,
-    private userService: UsersService) { }
+    private userService: UsersService, 
+    ) { }
   createNewUser(user: User) {
     this.formNewUser =  this.formBuilder.group({
       firstName: ['', Validators.required],

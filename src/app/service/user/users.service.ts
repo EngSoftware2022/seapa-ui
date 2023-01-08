@@ -34,5 +34,9 @@ export class UsersService {
   login(user: string, password: string) {
     return this.http.get<any>(this.apiURL + 'signin?usuario=' + user + '&senha=' + password);
   }
+
+  findUserById(id: number) {
+    return this.http.get<any>(this.apiURL + 'id?id=' + id);
+  }
 }
 
