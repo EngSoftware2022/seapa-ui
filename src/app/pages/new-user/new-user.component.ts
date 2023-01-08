@@ -35,8 +35,6 @@ export class NewUserComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formNewUser.get('birthday').value)
-
     if(!this.formNewUser.valid) {
       this.toastrService.error('Erro', 'Necessário preencher todas as informações');
       return;

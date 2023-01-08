@@ -1,5 +1,7 @@
+import { UsersService } from './../../service/user/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FriendsService } from 'src/app/service/friends/friends.service';
 
 @Component({
   selector: 'app-groups-form',
@@ -17,10 +19,18 @@ export class GroupsFormComponent implements OnInit {
       { id: 3, name: 'Opel' },
       { id: 4, name: 'Audi' },
   ];
-  constructor(private formBuilder: FormBuilder, ) { }
+
+  listFriends: any;
+  userId!: any;
+
+  constructor(private formBuilder: FormBuilder,
+    private friendService: FriendsService ,
+    private userService: UsersService) { }
 
   ngOnInit(): void {
     this.initForm();
+    this.userId = localStorage.getItem('userId')
+    this.getAllFriends();
   }
 
   initForm() {
@@ -34,6 +44,16 @@ export class GroupsFormComponent implements OnInit {
     console.log(this.formBusca.value)
   }
 
+  getAllFriends() {
+    this.userService.findUser(this.userId).subscribe((res:any) => {
+        console.log(res);
+        this.listFriends = res;
+    })
+  }
+
+  saveGroup() {
+
+  }
 
 
 }

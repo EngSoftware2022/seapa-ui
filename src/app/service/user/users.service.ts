@@ -28,11 +28,11 @@ export class UsersService {
 
 
   findUser(userName: string) {
-    return this.http.get<any>(this.apiURL + '/getByName/' + userName);
+    return this.http.get<any>(this.apiURL + 'nomeUsuario?nomeUsuario=' + userName);
   }
 
   login(user: string, password: string) {
-    return this.http.get<any>(this.apiURL + 'signin/usuario=' + user + '&senha=' + password);
+    return this.http.get<any>(this.apiURL + 'signin?usuario=' + user + '&senha=' + password);
   }
 }
 

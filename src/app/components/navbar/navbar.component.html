@@ -8,7 +8,10 @@
     <div class="listNavbar">
       <a mat-button *ngIf="!userId"[routerLink]="'/new-user'"> Novo Usuário </a>
       <a mat-button *ngIf="!userId" [routerLink]="''"> Login </a>
+      <a mat-button [routerLink]="'/group'"> Grupos </a>
       <a mat-button [routerLink]="'/faq'"> FAQ </a>
+      <a mat-button *ngIf="userId" [routerLink]="''" (click)="logout()"> Sair </a>
+
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -22,12 +25,13 @@
 
     </mat-nav-list>
     <mat-nav-list *ngIf="userId">
-
       <a mat-list-item (click)="openNewFriend()"> Adicionar amigo </a>
       <a mat-list-item (click)="openSolicitation()"> Ver solicitações </a>
 
+      <mat-list-item *ngFor="let friend of listFriends">
+        {{friend.nome}}
+      </mat-list-item>
       <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Fechar</a>
-
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

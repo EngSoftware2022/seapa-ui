@@ -3,6 +3,8 @@ import { LoginComponent } from 'src/app/pages/login/login.component';
 import {MatDialog} from '@angular/material/dialog';
 import { FriendRequestComponent } from 'src/app/pages/friend-request/friend-request.component';
 import { FriendsSolicitationComponent } from '../friends-solicitation/friends-solicitation.component';
+import { FriendsService } from 'src/app/service/friends/friends.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,16 +16,24 @@ export class NavbarComponent implements OnInit{
   userId!: any;
   showFiller = false;
 
-  constructor(public dialog: MatDialog) { }
+  listFriends: any;
+
+  constructor(public dialog: MatDialog,
+    private router: Router,
+    private friendService: FriendsService) { }
 
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
     console.log(this.userId)
+    this.getAllFriends();
   }
 
   getAllFriends() {
-
+    this.friendService.getAllFriends(this.userId).subscribe((res:any) => {
+        console.log(res);
+        this.listFriends = res;
+    })
   }
 
   openNewFriend() {
@@ -46,6 +56,11 @@ export class NavbarComponent implements OnInit{
       console.log(`Dialog result: ${result}`);
     });
 
+  }
+
+  logout() {
+    localStorage.clear();
+    location.reload();
   }
 
 

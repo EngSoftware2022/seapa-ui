@@ -1,3 +1,4 @@
+import { BetsComponent } from './pages/bets/bets.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewUserComponent } from './pages/new-user/new-user.component';
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'extrato', component: ExtratoComponent},
   { path: '', component: LoginComponent},
   { path: 'new-group', component: GroupsFormComponent},
-  { path:  'group', component: GroupsListComponent }
+  { path:  'group', component: GroupsListComponent },
+  { path:  'group/bets/:id', component: BetsComponent }
+
   
 ];
 

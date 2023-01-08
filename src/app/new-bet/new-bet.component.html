@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Nova aposta</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="formBet">
+    <div class="row">
+      <div class="col">
+        <label for="formGroupExampleInput">Aposta*</label>
+        <input type="number" class="form-control" id="formInputBirthday" 
+          formControlName="bet"  required>
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">Valor de aposta*</label>
+        <input type="number" class="form-control" id="formInputBirthday" 
+          formControlName="betValue" required>
+      </div>
+    </div>
+  </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Apostar</button>
+
+</mat-dialog-actions>

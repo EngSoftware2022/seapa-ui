@@ -1,5 +1,5 @@
-<div class="container">
-    <h1>Novo grupo</h1>
+<h2 mat-dialog-title>Novo grupo</h2>
+<mat-dialog-content class="mat-typography">
     <form [formGroup]="formBusca">
         <div class="row">
             <div class="col">
@@ -14,10 +14,8 @@
             </div>
         </div>
     </form>
-    <div class="row align-items-end">
-        <div class="buttons">
-            <button type="button" class="btn btn-outline-danger">Cancelar</button>
-            <button type="button" class="btn btn-primary" (click)="onSubmit()" >Salvar</button>
-        </div>
-    </div>
-</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" >Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" (click)="onSubmit()"  cdkFocusInitial>Salvar</button>
+</mat-dialog-actions>
