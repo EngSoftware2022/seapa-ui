@@ -39,9 +39,9 @@ export class ExtratoComponent implements OnInit {
   }
 
   getSaldos(){
-    this.extratoService.getSaldo().subscribe(data => {
-      this.saldo = data;
-    });
+    // this.extratoService.getSaldo().subscribe(data => {
+    //   this.saldo = data;
+    // });
   }
 
 }

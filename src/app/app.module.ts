@@ -1,3 +1,4 @@
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,7 +10,6 @@ import { environment } from '../environments/environment';
 import { NewUserComponent } from './pages/new-user/new-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FaqComponent } from './pages/faq/faq.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FriendRequestComponent } from './pages/friend-request/friend-request.component';
@@ -27,13 +27,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FriendsSolicitationComponent } from './components/friends-solicitation/friends-solicitation.component';
+import { BetsComponent } from './pages/bets/bets.component';
+import { NewModerateBetComponent } from './new-moderate-bet/new-moderate-bet.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
+import { NewBetComponent } from './new-bet/new-bet.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ProfileComponent } from './pages/profile/profile.component'; 
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     NewUserComponent,
     FaqComponent,
@@ -44,7 +51,12 @@ const maskConfig: Partial<IConfig> = {
     GroupsListComponent,
     GroupsFormComponent,
     FriendsSolicitationComponent,
-  ],
+    BetsComponent,
+      NewModerateBetComponent,
+      NewBetComponent,
+      ProfileComponent,
+      EditUserComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -71,7 +83,10 @@ const maskConfig: Partial<IConfig> = {
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

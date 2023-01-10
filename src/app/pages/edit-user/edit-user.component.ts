@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../model/user/user';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UsersService } from 'src/app/service/user/users.service';
-import { ExtratosService } from 'src/app/service/extrato/extratos.service';
 
 @Component({
-  selector: 'app-new-user',
-  templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.scss']
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.scss']
 })
-export class NewUserComponent implements OnInit {
+export class EditUserComponent implements OnInit {
   formNewUser: any;
+  userId: any;
+  user: any;
 
   constructor(private formBuilder: FormBuilder, 
     private toastrService: ToastrService,
     private userService: UsersService, 
     ) { }
-  createNewUser(user: User) {
+  createNewUser() {
     this.formNewUser =  this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -33,7 +33,9 @@ export class NewUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createNewUser(new User());
+    this.userId = localStorage.getItem('userId')
+    this.createNewUser();
+    this.getCurrentUser();
   }
 
   onSubmit() {
@@ -48,11 +50,11 @@ export class NewUserComponent implements OnInit {
       return;
     }
 
-    this.userService.createUser(this.createObjRequest()).subscribe((res) => {
-      this.toastrService.success('Sucesso', 'Usuário criado com sucesso');
+    this.userService.editUser(this.createObjRequest()).subscribe((res) => {
+      this.toastrService.success('Sucesso', 'Usuário editado com sucesso');
     },  (err) => {
       console.log(err);
-      this.toastrService.error('Erro', 'Erro ao tentar salvar usuário');
+      this.toastrService.error('Erro', 'Erro ao tentar editar usuário');
     });
     
   }
@@ -68,6 +70,31 @@ export class NewUserComponent implements OnInit {
       "email": this.formNewUser.get('email').value ,
       "senha": this.formNewUser.get('password').value 
     };
+  }
+
+  getCurrentUser() {
+    this.userService.findUserById(this.userId).subscribe((res:any) => {
+        console.log(res);
+        this.user = res;
+      this.setValueForm();
+    }, (err) => {
+      this.toastrService.error('Erro', 'Erro ao carregar usuário');
+
+    })
+  }
+
+  setValueForm() {
+    this.formNewUser.setValue({
+      firstName: this.user.usuario.nome,
+      lastName: this.user.usuario.sobrenome,
+      cpf: this.user.usuario.cpf,
+      birthday: this.user.usuario.dataAniversario,
+      phone: this.user.usuario.telefone,
+      userName: this.user.nomeUsuario,
+      email: this.user.email,
+      password: '',
+      passwordVerify: ''
+    });
   }
 
 }

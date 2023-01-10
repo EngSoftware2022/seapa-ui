@@ -1,12 +1,11 @@
 <div class="container">
-
     <div class="container">
         <div class="row">
             <div class="col">
                 <h1>Meus grupos</h1>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-primary" >Novo grupo</button>
+                <button type="button" class="btn btn-primary" (click)="openNewGroup()" >Novo grupo</button>
             </div>
         </div>
     </div>
@@ -19,6 +18,7 @@
                     <tr>
                         <th scope="col">Nome do grupo</th>
                         <th scope="col">Usuários</th>
+                        <th scope="col">Apostas</th>
 
                     </tr>
                 </thead>
@@ -29,6 +29,9 @@
                         </td>
                         <td>
                             {{row.team}}
+                        </td>
+                        <td>
+                            <button  data-toggle="tooltip" data-placement="top" [routerLink]="['bets', row.id]" >Apostas</button>
                         </td>
                     </tr>
 

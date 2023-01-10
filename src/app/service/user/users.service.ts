@@ -26,13 +26,29 @@ export class UsersService {
       )
   }
 
+  editUser(user: any): Observable<any> {
+    return this.http
+      .post<any>(
+        this.apiURL,
+        user,
+      )
+  }
+
 
   findUser(userName: string) {
-    return this.http.get<any>(this.apiURL + '/getByName/' + userName);
+    return this.http.get<any>(this.apiURL + 'nomeUsuario?nomeUsuario=' + userName);
   }
 
   login(user: string, password: string) {
-    return this.http.get<any>(this.apiURL + 'signin/usuario=' + user + '&senha=' + password);
+    return this.http.get<any>(this.apiURL + 'signin?usuario=' + user + '&senha=' + password);
+  }
+
+  findUserById(id: string) {
+    return this.http.get<any>(this.apiURL + 'id?id=' + id);
+  }
+
+  deleteUser(id: string) {
+    return this.http.delete<any>(this.apiURL + id);
   }
 }
 
