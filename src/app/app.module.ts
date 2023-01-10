@@ -1,3 +1,4 @@
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -31,7 +32,8 @@ import { NewModerateBetComponent } from './new-moderate-bet/new-moderate-bet.com
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { NewBetComponent } from './new-bet/new-bet.component';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ProfileComponent } from './pages/profile/profile.component'; 
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -51,7 +53,9 @@ const maskConfig: Partial<IConfig> = {
     FriendsSolicitationComponent,
     BetsComponent,
       NewModerateBetComponent,
-      NewBetComponent
+      NewBetComponent,
+      ProfileComponent,
+      EditUserComponent
    ],
   imports: [
     BrowserModule,

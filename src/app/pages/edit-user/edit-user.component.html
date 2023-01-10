@@ -1,0 +1,74 @@
+
+<div class="container">
+  <h1>Editar usuário</h1>
+
+  <form [formGroup]="formNewUser" (ngSubmit)="onSubmit()">
+      <div class="row align-items-start">
+          <div class="col">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">Nome*</label>
+                  <input type="text" class="form-control" id="formInputName" placeholder="Nome" formControlName="firstName" required>
+              </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">Sobrenome*</label>
+                  <input type="text" class="form-control" id="formInputLastName" placeholder="Sobrenome" formControlName="lastName" required>
+              </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">Data de Nascimento*</label>
+                  <input type="date" class="form-control" id="formInputBirthday" placeholder="Data de Nascimento" formControlName="birthday"  placeholder="dd-mm-yyyy"  required>
+              </div>
+          </div>
+      </div>
+      <div class="row align-items-center">
+          <div class="col">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">Usuário*</label>
+                  <input type="text" class="form-control" id="formInputUser" placeholder="Usuário" formControlName="userName" required>
+              </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Senha*</label>
+                  <input type="password" class="form-control" id="formInputPassword" placeholder="Senha" formControlName="password" required>
+              </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Confirmar Senha*</label>
+                  <input type="password" class="form-control" id="formInputConfirmPassword" formControlName="passwordVerify" placeholder="Confirmar Senha">
+              </div>
+          </div>
+      </div>
+      <div class="row align-items-end">
+          <div class="col">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">CPF*</label>
+                  <input type="text" mask="000.000.000-00||00.000.000/0000-00"   class="form-control" id="formInputCPF" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" formControlName="cpf" required>
+              </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                  <label for="exampleInputEmail1">Endereço de email</label>
+                  <input type="email" class="form-control" id="buttonFormCancel" aria-describedby="emailHelp" placeholder="Seu email" formControlName="email" required>
+              </div>
+          </div>
+          <div class="col">
+              <div class="form-group">
+                  <label for="formGroupExampleInput">Telefone*</label>
+                  <input type="text" class="form-control" id="buttonFormConfirm" placeholder="Telefone" formControlName="phone" required>
+              </div>
+          </div>
+      </div>
+  </form>
+
+  <div class="row align-items-end">
+      <div class="buttons">
+          <button type="button" class="btn btn-outline-danger">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="onSubmit()" >Confirmar</button>
+      </div>
+  </div>
+</div>
