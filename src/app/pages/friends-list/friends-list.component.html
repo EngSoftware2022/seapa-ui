@@ -4,7 +4,7 @@
     </a>
   
     <a  mat-list-item (click)="openSolicitation()">
-      <span matListItemTitle>Ver solicitações</span>
+      <span [matBadge]="friendSolicitationList.length" matBadgeColor="warn" matBadgePosition="after"  matListItemTitle>Ver solicitações</span>
     </a>
 
     <mat-list-item *ngFor="let item of listFriends" (click)="deleteFriend(item.id)">

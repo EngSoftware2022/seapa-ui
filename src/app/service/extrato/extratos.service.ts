@@ -30,7 +30,7 @@ export class ExtratosService {
   }
 
   public withdraw(userId: number, value: number): Observable<any> {
-    return this.httpClient.put<any>(this.apiUrl + 'saque?usuarioId=' + userId + '&valorDeposito=' + value, '');
+    return this.httpClient.put<any>(this.apiUrl + 'saque?usuarioId=' + userId + '&valorSaque=' + value, '');
   }
 
 }
