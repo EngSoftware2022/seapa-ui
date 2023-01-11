@@ -15,7 +15,7 @@ export class FriendsService {
   sendRequestToUser(userRequest: any, userFriend: any): Observable<any> {
     return this.http
       .post<any>(
-        this.apiURL +"/novoConvite/solicitanteId="+ userRequest + '&solicitadoId=' + userFriend,
+        this.apiURL +"novoConvite/solicitanteId="+ userRequest + '&solicitadoId=' + userFriend,
         '',
       )
   }
@@ -23,14 +23,14 @@ export class FriendsService {
   getAllRequest(userRequest: any): Observable<any> {
     return this.http
       .get<any>(
-        this.apiURL + 'solicitanteId=' + userRequest
+        this.apiURL + 'solicitadoId=' + userRequest
       )
   }
 
   aceptRequest(requestId: any): Observable<any> {
     return this.http
       .post<any>(
-        this.apiURL +"/atualizaConviteAmizade/conviteId="+ requestId + '&statusConvite=ACEITO',
+        this.apiURL +"atualizaConviteAmizade/?conviteId="+ requestId + '&statusConvite=ACEITO',
         '',
       )
   }
@@ -38,7 +38,7 @@ export class FriendsService {
   rejectRequest(requestId: any,): Observable<any> {
     return this.http
     .post<any>(
-      this.apiURL +"/atualizaConviteAmizade/conviteId="+ requestId + '&statusConvite=REJEITADO',
+      this.apiURL +"atualizaConviteAmizade/?conviteId="+ requestId + '&statusConvite=REJEITADO',
       '',
     )
   }
@@ -46,8 +46,14 @@ export class FriendsService {
   getAllFriends(userId: any): Observable<any> {
     return this.http
       .get<any>(
-        this.URL + 'usuario/' + userId
+        this.URL + 'usuario/?usuarioId=' + userId
       )
   }
 
+  deleteFriend(userId: any): Observable<any> {
+    return this.http
+      .delete<any>(
+        this.URL + 'usuario/amigo/' + userId
+      )
+  }
 }

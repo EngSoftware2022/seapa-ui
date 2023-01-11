@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/service/user/users.service';
 import { FriendsService } from 'src/app/service/friends/friends.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-friend-request',
@@ -16,6 +17,7 @@ export class FriendRequestComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, 
     private userService: UsersService,
+    private toastrService: ToastrService,
     private friendService: FriendsService) {
 
   }
@@ -44,13 +46,12 @@ export class FriendRequestComponent implements OnInit {
   getAllUsers() {
     this.userService.getAll().subscribe((res:any) => {
       this.friendList = res;
-      console.log(res)
     });
   }
 
   sendRequestFriend(friendId: number) {
     this.friendService.sendRequestToUser(this.userId,friendId).subscribe((res:any) => {
-      console.log(res)
+      this.toastrService.success('Sucesso', 'Solicitação enviada com sucesso');
     })
   }
 

@@ -33,7 +33,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { NewBetComponent } from './new-bet/new-bet.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ProfileComponent } from './pages/profile/profile.component'; 
+import { ProfileComponent } from './pages/profile/profile.component';
+import { FriendsListComponent } from './pages/friends-list/friends-list.component'; 
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -55,7 +57,8 @@ const maskConfig: Partial<IConfig> = {
       NewModerateBetComponent,
       NewBetComponent,
       ProfileComponent,
-      EditUserComponent
+      EditUserComponent,
+      FriendsListComponent
    ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ const maskConfig: Partial<IConfig> = {
     MatDialogModule,
     MatSlideToggleModule,
     MatRadioModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatBottomSheetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
