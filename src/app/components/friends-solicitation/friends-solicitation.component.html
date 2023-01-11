@@ -12,7 +12,7 @@
                 <tbody>
                     <tr *ngFor="let row of friendSolicitationList; index as i">
                         <td>
-                            {{row.id}}
+                            {{row.solicitanteNome}}
                         </td>
                         <td>
                             <button class="bi bi-check"  data-toggle="tooltip" data-placement="top" (click)="acept(row.id)" title="Adicionar amigo"></button>

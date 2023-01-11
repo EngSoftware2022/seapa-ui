@@ -1,0 +1,16 @@
+<mat-nav-list>
+    <a  mat-list-item (click)="openNewFriend()">
+      <span matListItemTitle>Adicionar amigo</span>
+    </a>
+  
+    <a  mat-list-item (click)="openSolicitation()">
+      <span matListItemTitle>Ver solicitações</span>
+    </a>
+
+    <mat-list-item *ngFor="let item of listFriends" (click)="deleteFriend(item.id)">
+        <mat-icon  matListIcon>group</mat-icon>
+        <span matLine>{{item.amigoNomeUsuario}} </span>
+        <span matListItemTitle>    Deletar amizade    </span>
+    </mat-list-item>
+
+  </mat-nav-list>

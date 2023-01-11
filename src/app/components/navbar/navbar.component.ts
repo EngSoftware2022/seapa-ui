@@ -1,3 +1,4 @@
+import { FriendsListComponent } from './../../pages/friends-list/friends-list.component';
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { LoginComponent } from 'src/app/pages/login/login.component';
 import {MatDialog} from '@angular/material/dialog';
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 import { UsersService } from 'src/app/service/user/users.service';
 import { ExtratosService } from 'src/app/service/extrato/extratos.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +22,6 @@ export class NavbarComponent implements OnInit{
   userId!: any;
   showFiller = false;
 
-  listFriends: any;
   user: any;
   wallet: any;
 
@@ -27,7 +29,7 @@ export class NavbarComponent implements OnInit{
     private router: Router,
     private toastrService: ToastrService,
     private userService: UsersService,
-    private friendService: FriendsService,
+    private _bottomSheet: MatBottomSheet,
     private walletService: ExtratosService) { }
 
 
@@ -35,21 +37,16 @@ export class NavbarComponent implements OnInit{
     this.userId = localStorage.getItem('userId')
     console.log(this.userId)
     if(this.userId) {
-      this.getAllFriends();
       this.getCurrentUser();
       this.getCurrentMoney();
     }
 
   }
 
-  getAllFriends() {
-    this.friendService.getAllFriends(this.userId).subscribe((res:any) => {
-        console.log(res);
-        this.listFriends = res;
-    },(err)=> {
-      this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');
-    })
+  openBottomSheet(): void {
+    this._bottomSheet.open(FriendsListComponent);
   }
+
 
   getCurrentUser() {
     this.userService.findUserById(this.userId).subscribe((res:any) => {

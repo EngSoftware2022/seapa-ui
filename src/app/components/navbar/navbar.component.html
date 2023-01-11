@@ -34,6 +34,8 @@
     </mat-nav-list>
     <mat-nav-list *ngIf="userId">
       <a mat-list-item [routerLink]="'/group'"> Grupos </a>
+      <a mat-list-item (click)="openBottomSheet()"> Amigos </a>
+
       <a mat-list-item (click)="logout()" [routerLink]="''"> Sair </a>
 
     </mat-nav-list>
