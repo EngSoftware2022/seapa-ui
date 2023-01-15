@@ -30,7 +30,15 @@ $theme-colors: (
    height: 40px;
  }
 
+ .mat-radio-group {
+   display: flex; flex-direction: column;
+   /* display: inline-grid; */ 
+   /* display: grid; */
+   margin: 15px 0;
+}
+
 // regular style toast
 @import '~ngx-toastr/toastr';
 
 @import "~@ng-select/ng-select/themes/material.theme.css"
+

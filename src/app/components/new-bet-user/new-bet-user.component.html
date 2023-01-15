@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Apostar</h2>
+<mat-dialog-content class="mat-typography">
+    <h3> {{bet.descricaoAposta}}</h3>
+    <form [formGroup]="formBet">
+        <div class="row">
+            <div class="col">
+                <div *ngIf="options.length === 1">
+                    <mat-radio-group aria-label="Select an option" formControlName="option" >
+                        <mat-radio-button [value]="options[0].primeiraOpcao"> {{options[0].primeiraOpcao}}</mat-radio-button>
+                        <mat-radio-button  [value]="options[0].segundaOpcao"> {{options[0].segundaOpcao}}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <div *ngIf="options.length !== 1">
+                    <mat-radio-group aria-label="Select an option" *ngFor="let opt of options;" formControlName="option" >
+                        <mat-radio-button [value]="opt.id"> {{ opt.primeiraOpcao}} - {{ opt.segundaOpcao}}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button class="btn btn-outline-warning"  [mat-dialog-close]="true" >Cancelar</button>
+  <button mat-button class="btn btn-primary"  [mat-dialog-close]="true" (click)="apostar()" >Apostar</button>
+
+</mat-dialog-actions>

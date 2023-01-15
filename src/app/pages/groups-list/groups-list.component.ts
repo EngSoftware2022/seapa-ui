@@ -48,7 +48,7 @@ export class GroupsListComponent implements OnInit {
         console.log(res);
         this.groupList = res;
     },(err)=> {
-      this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');
+      this.toastrService.error('Erro', 'Erro ao carregar lista de grupos');
     })
   }
 

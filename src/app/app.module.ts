@@ -43,6 +43,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { WithdrawComponent } from './components/withdraw/withdraw.component'; 
 import { MatCardModule } from '@angular/material/card';
 import { RequestGroupComponent } from './components/request-group/request-group.component';
+import { NewBetUserComponent } from './components/new-bet-user/new-bet-user.component';
+import { ValidadeBetComponent } from './components/validade-bet/validade-bet.component';
 
 
 const maskConfig: Partial<IConfig> = {
@@ -71,7 +73,9 @@ const maskConfig: Partial<IConfig> = {
       WithdrawComponent,
       ControlCenterBetsComponent,
       AddUserGroupComponent,
-      RequestGroupComponent
+      RequestGroupComponent,
+      NewBetUserComponent,
+      ValidadeBetComponent
    ],
   imports: [
     BrowserModule,

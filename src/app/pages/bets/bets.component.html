@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="container">
       <div class="row">
           <div class="col">
@@ -60,4 +60,38 @@
       </div>
   </div>
   <a href="/"><button type="button" class="btn btn-outline-warning" id="b1">Voltar</button></a>
-</div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Minhas apostas</h1>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="openNewBetManagement()">Nova aposta</button>
+        </div>
+    </div>
+
+
+
+<div fxLayout='row' fxLayoutWrap class="cards">
+
+<div fxFlex="20" class="example-card">
+    <mat-card class="example-card" *ngFor="let bet of betsList" style="margin-top:10px;">
+        <mat-card-header>
+            <mat-card-title> {{ bet.descricaoAposta}}</mat-card-title>
+            <mat-card-subtitle> {{bet.tipoAposta}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Valor:</strong> {{bet.valorAposta}}</p>
+            <p><strong>Opção vencedora:</strong> {{bet.opcaoVencedora}} </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button class="btn btn-primary" (click)="openBetUser(bet)"  mat-button>Apostar</button>
+            <button class="btn btn-primary" (click)="openValidateBet(bet)"  mat-button>Validar</button>
+          </mat-card-actions>
+      
+    </mat-card>
+    </div>
+  
+  </div>

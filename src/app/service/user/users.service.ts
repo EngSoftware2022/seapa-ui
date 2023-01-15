@@ -50,5 +50,9 @@ export class UsersService {
   deleteUser(id: string) {
     return this.http.delete<any>(this.apiURL + id);
   }
+
+  findBetsById(id: string) {
+    return this.http.get<any>(this.apiURL + 'todasAsApostasRealizadas?usuarioId=' + id);
+  }
 }
 
