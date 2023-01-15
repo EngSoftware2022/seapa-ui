@@ -8,7 +8,7 @@
     <div class="col"></div>
 
     <div *ngIf="userId">
-      <a mat-icon-button [routerLink]="'profile'">
+      <!-- <a mat-icon-button [routerLink]="'profile'">
         <mat-icon>person</mat-icon>
         {{user.nomeUsuario}}
       </a>
@@ -18,7 +18,7 @@
         </mat-icon>
         {{wallet.saldo}}
 
-      </a>
+      </a> -->
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -33,8 +33,11 @@
 
     </mat-nav-list>
     <mat-nav-list *ngIf="userId">
-      <a mat-list-item [routerLink]="'/group'"> Grupos </a>
+      <a mat-list-item [routerLink]="'/wallet'"> Extrato </a>
+
       <a mat-list-item (click)="openBottomSheet()"> Amigos </a>
+
+      <a mat-list-item [routerLink]="'/group'"> Grupos </a>
 
       <a mat-list-item (click)="logout()" [routerLink]="''"> Sair </a>
 

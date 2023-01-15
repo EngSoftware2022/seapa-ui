@@ -26,7 +26,7 @@ export class ExtratoComponent implements OnInit {
   }
 
   getSaldos(){
-    this.extratoService.getLastTransations(this.userId).subscribe(data => {
+    this.extratoService.getAllTransations(this.userId).subscribe(data => {
       this.saldo = data;
       console.log(this.saldo);
     });
@@ -39,7 +39,7 @@ export class ExtratoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      this.getSaldos();
+       this.getSaldos();
     });
 
   }

@@ -22,7 +22,8 @@ export class NewModerateBetComponent implements OnInit {
       dateInit: ['', Validators.required],
       dateEnd: ['', Validators.required],
       managementType: ['', Validators.required],
-      tipoAposta: ['', Validators.required]
+      tipoAposta: ['', Validators.required],
+      range: [''],
     });
   }
 

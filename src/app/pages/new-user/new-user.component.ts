@@ -24,7 +24,7 @@ export class NewUserComponent implements OnInit {
       userName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      cpf: ['', Validators.required],
+      cpf: [''],
       birthday: ['', Validators.required],
       phone: ['', Validators.required],
       passwordVerify: ['', Validators.required],
@@ -37,11 +37,12 @@ export class NewUserComponent implements OnInit {
   }
 
   onSubmit() {
-    if(!this.formNewUser.valid) {
-      this.toastrService.error('Erro', 'Necessário preencher todas as informações');
-      return;
+    console.log(this.formNewUser);
+    // if(!this.formNewUser.valid) {
+    //   this.toastrService.error('Erro', 'Necessário preencher todas as informações');
+    //   return;
 
-    }
+    // }
 
     if (this.formNewUser.get('password').value !== this.formNewUser.get('passwordVerify').value  ) {
       this.toastrService.error('Erro', 'Senha diferentes!');

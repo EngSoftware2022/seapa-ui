@@ -1,11 +1,11 @@
-<h2 mat-dialog-title>Novo grupo</h2>
+<h2 mat-dialog-title>Adicionar participantes</h2>
 <mat-dialog-content class="mat-typography">
     <form [formGroup]="formBusca">
         <div class="row">
             <div class="col">
-                <label>Nome do grupo:</label>
-                <input type="search" class="form-control" id="datatable-search-input"
-                    placeholder="Identifique o nome do seu grupo" formControlName="nomeEquipe" required="true">
+                <label>Participantes:</label>
+                <ng-select [items]="listFriends" bindLabel="amigoNomeUsuario" bindValue="amigoId" formControlName="teams" [multiple]="true">
+                </ng-select>
             </div>
         </div>
     </form>

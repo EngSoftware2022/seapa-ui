@@ -1,3 +1,5 @@
+import { AddUserGroupComponent } from './pages/add-user-group/add-user-group.component';
+import { ControlCenterBetsComponent } from './pages/control-center-bets/control-center-bets.component';
 import { DepositComponent } from './components/deposit/deposit.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { NgModule } from '@angular/core';
@@ -39,6 +41,9 @@ import { FriendsListComponent } from './pages/friends-list/friends-list.componen
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatBadgeModule} from '@angular/material/badge';
 import { WithdrawComponent } from './components/withdraw/withdraw.component'; 
+import { MatCardModule } from '@angular/material/card';
+import { RequestGroupComponent } from './components/request-group/request-group.component';
+
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -63,7 +68,10 @@ const maskConfig: Partial<IConfig> = {
       EditUserComponent,
       FriendsListComponent,
       DepositComponent,
-      WithdrawComponent
+      WithdrawComponent,
+      ControlCenterBetsComponent,
+      AddUserGroupComponent,
+      RequestGroupComponent
    ],
   imports: [
     BrowserModule,
@@ -96,7 +104,8 @@ const maskConfig: Partial<IConfig> = {
     MatRadioModule,
     MatFormFieldModule,
     MatBottomSheetModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

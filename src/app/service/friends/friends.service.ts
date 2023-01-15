@@ -15,7 +15,7 @@ export class FriendsService {
   sendRequestToUser(userRequest: any, userFriend: any): Observable<any> {
     return this.http
       .post<any>(
-        this.apiURL +"novoConvite/solicitanteId="+ userRequest + '&solicitadoId=' + userFriend,
+        this.apiURL +"novoConvite?solicitanteId="+ userRequest + '&solicitadoId=' + userFriend,
         '',
       )
   }

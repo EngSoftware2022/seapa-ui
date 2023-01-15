@@ -6,6 +6,8 @@
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-primary" (click)="openNewGroup()" >Novo grupo</button>
+                <button class="btn btn-primary" [matBadge]="requestList.length"  data-toggle="tooltip" data-placement="top" (click)="showRequestGroup()" >Minhas solicitações</button>
+
             </div>
         </div>
     </div>
@@ -18,20 +20,26 @@
                     <tr>
                         <th scope="col">Nome do grupo</th>
                         <th scope="col">Usuários</th>
-                        <th scope="col">Apostas</th>
+                        <th scope="col">Moderador</th>
+                        <th scope="col">Ações</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let row of groupList; index as i">
                         <td>
-                            {{row.name}}
+                            {{row.nomeGrupo}}
+                        </td>
+
+                        <td>
+                            <p *ngFor="let col of row.integrantes">{{col.nomeUsuario}}</p>
                         </td>
                         <td>
-                            {{row.team}}
+                            {{row.nomeModerador}}
                         </td>
                         <td>
                             <button class="btn btn-primary"   data-toggle="tooltip" data-placement="top" [routerLink]="['bets', row.id]" >Apostas</button>
+                            <button class="btn btn-primary"   data-toggle="tooltip" data-placement="top" (click)="openModalAddParticipante(row.id)" >Adicionar participantes</button>
                         </td>
                     </tr>
 
