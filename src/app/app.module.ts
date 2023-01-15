@@ -31,7 +31,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FriendsSolicitationComponent } from './components/friends-solicitation/friends-solicitation.component';
 import { BetsComponent } from './pages/bets/bets.component';
-import { NewModerateBetComponent } from './new-moderate-bet/new-moderate-bet.component';
+import { NewModerateBetComponent } from './components/bets/new-moderate-bet/new-moderate-bet.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { NewBetComponent } from './new-bet/new-bet.component';
@@ -43,8 +43,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { WithdrawComponent } from './components/withdraw/withdraw.component'; 
 import { MatCardModule } from '@angular/material/card';
 import { RequestGroupComponent } from './components/request-group/request-group.component';
-import { NewBetUserComponent } from './components/new-bet-user/new-bet-user.component';
-import { ValidadeBetComponent } from './components/validade-bet/validade-bet.component';
+import { NewBetUserComponent } from './components/bets/new-bet-user/new-bet-user.component';
+import { ValidadeBetComponent } from './components/bets/validade-bet/validade-bet.component';
 
 
 const maskConfig: Partial<IConfig> = {

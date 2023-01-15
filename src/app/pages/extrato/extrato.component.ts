@@ -34,7 +34,8 @@ export class ExtratoComponent implements OnInit {
 
   deposit() {
     const dialogRef = this.dialog.open(DepositComponent, {
-      width: '500px',
+      width: '100%',
+      height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -46,7 +47,8 @@ export class ExtratoComponent implements OnInit {
 
   withdraw() {
     const dialogRef = this.dialog.open(WithdrawComponent, {
-      width: '500px',
+      width: '100%',
+      height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {

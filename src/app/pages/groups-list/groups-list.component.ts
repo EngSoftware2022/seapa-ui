@@ -1,5 +1,5 @@
 import { AddUserGroupComponent } from './../add-user-group/add-user-group.component';
-import { NewModerateBetComponent } from './../../new-moderate-bet/new-moderate-bet.component';
+import { NewModerateBetComponent } from '../../components/bets/new-moderate-bet/new-moderate-bet.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { GroupsFormComponent } from '../groups-form/groups-form.component';
@@ -33,8 +33,8 @@ export class GroupsListComponent implements OnInit {
 
   openNewGroup() {
     const dialogRef = this.dialog.open(GroupsFormComponent, {
-      width: '500px',
-      height: '400px'
+      width: '100%',
+      height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -54,8 +54,8 @@ export class GroupsListComponent implements OnInit {
 
     openModalAddParticipante(idGroup: number) {
       const dialogRef = this.dialog.open(AddUserGroupComponent, {
-        width: '500px',
-        height: '400px',
+        width: '100%',
+        height : 'auto',
         data: {
           idGroup: idGroup
         },
@@ -79,8 +79,8 @@ export class GroupsListComponent implements OnInit {
 
     showRequestGroup() {
       const dialogRef = this.dialog.open(RequestGroupComponent, {
-        width: '500px',
-        height: '400px',
+        width: '100%',
+        height : 'auto',
       });
   
       dialogRef.afterClosed().subscribe(result => {

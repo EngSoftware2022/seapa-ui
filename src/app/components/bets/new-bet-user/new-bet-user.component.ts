@@ -20,18 +20,13 @@ export class NewBetUserComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private betService: BetsService,
     private toastrService: ToastrService,
-
-
     ) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
-
     this.initForm();
     this.options = this.data.bet.opcoesApostas;
     this.bet = this.data.bet;
-    console.log(this.data)
-    console.log(this.options)
   }
 
   initForm() {
@@ -47,9 +42,9 @@ export class NewBetUserComponent implements OnInit {
       "opcaoEscolhida": this.formBet.get('option').value
     }
 
-    console.log(this.formBet.get('option').value)
     this.betService.setBet(obj).subscribe((res:any) => {
-      console.log(res);
+      this.toastrService.success('Sucesso', 'Aposta realizada com sucesso');
+
     },(err: any)=> {
       this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');
     })

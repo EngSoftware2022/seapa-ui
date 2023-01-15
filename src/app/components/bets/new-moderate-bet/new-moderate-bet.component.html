@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Nova amizade</h2>
+<h2 mat-dialog-title>Nova aposta</h2>
 <mat-dialog-content class="mat-typography">
   <form [formGroup]="formModerateBet">
     <div class="row">
@@ -9,7 +9,7 @@
       </div>
       <div class="col">
         <label for="formGroupExampleInput">Valor aposta*</label>
-        <input type="search" class="form-control" id="datatable-search-input" placeholder="Descrição da aposta"
+        <input type="number" class="form-control" id="datatable-search-input" placeholder="Valor da aposta"
           formControlName="value" required="true">
       </div>
     </div>
@@ -56,12 +56,12 @@
     <div class="row" *ngIf="formModerateBet.controls['tipoAposta'].value === 'RANGE'" >
       <div class="col">
         <label for="formGroupExampleInput">Opção 1*</label>
-        <input type="search" class="form-control" id="datatable-search-input" placeholder="Descrição da aposta"
+        <input type="search" class="form-control" id="datatable-search-input" placeholder="Opção 1"
           formControlName="optionOne" required="true">
       </div>
       <div class="col">
         <label for="formGroupExampleInput">Opção 2*</label>
-        <input type="search" class="form-control" id="datatable-search-input" placeholder="Descrição da aposta"
+        <input type="search" class="form-control" id="datatable-search-input" placeholder="Opção 2"
           formControlName="optionTwo" required="true">
       </div>
       <button class="btn btn-primary" (click)="addOption()"  mat-button>Apostar</button>
@@ -101,7 +101,6 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
+  <button mat-button class="btn btn-outline-warning" [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
   <button mat-button class="btn btn-primary"  [mat-dialog-close]="true" cdkFocusInitial (click)="createCenterBet()">Criar aposta</button>
-
 </mat-dialog-actions>

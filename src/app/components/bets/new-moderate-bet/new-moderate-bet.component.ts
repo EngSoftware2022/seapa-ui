@@ -1,8 +1,8 @@
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { GroupService } from '../service/group/group.service';
-import { BetsService } from '../service/bets/bets.service';
+import { GroupService } from '../../../service/group/group.service';
+import { BetsService } from '../../../service/bets/bets.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -33,7 +33,6 @@ export class NewModerateBetComponent implements OnInit {
     this.initForm();
     this.userId = localStorage.getItem('userId')
     this.idGroup = this.data.idGroup;
-
   }
 
   initForm() {
@@ -67,7 +66,7 @@ export class NewModerateBetComponent implements OnInit {
     }
 
     this.betService.newbet(bet).subscribe((res:any) => {
-      console.log(res);
+      this.toastrService.success('Sucesso', 'Aposta criada com sucesso');
     },(err)=> {
       this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');
     })
@@ -75,9 +74,7 @@ export class NewModerateBetComponent implements OnInit {
   }
 
   createCenterBet() {
-    console.log(this.formModerateBet.value)
     this.groupService.newCenter(this.idGroup).subscribe((res:any) => {
-      console.log(res);
       this.createBetModerate(res);
     },(err)=> {
       this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');

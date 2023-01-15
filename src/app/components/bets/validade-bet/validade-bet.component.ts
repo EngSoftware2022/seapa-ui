@@ -20,18 +20,13 @@ export class ValidadeBetComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private betService: BetsService,
     private toastrService: ToastrService,
-
-
     ) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
-
     this.initForm();
     this.options = this.data.bet.opcoesApostas;
     this.bet = this.data.bet;
-    console.log(this.data)
-    console.log(this.options)
   }
 
   initForm() {
@@ -41,28 +36,20 @@ export class ValidadeBetComponent implements OnInit {
   }
 
   validate() {
-
     if(this.bet.tipoAposta === "BISTATE") {
-      console.log(this.formBet.get('option').value.id)
       this.betService.validateBetBistate(this.bet.id, this.options[0].id, this.formBet.get('option').value).subscribe((res:any) => {
-        console.log(res);
+        this.toastrService.success('Sucesso', 'Aposta validada com sucesso');
       },(err: any)=> {
         this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');
       })
 
     } else {
       this.betService.validateBetRange(this.bet.id, this.formBet.get('option').value).subscribe((res:any) => {
-        console.log(res);
+        this.toastrService.success('Sucesso', 'Aposta validada com sucesso');
       },(err: any)=> {
         this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');
       })
 
     }
-
-    
-
-
-
-
   }
 }

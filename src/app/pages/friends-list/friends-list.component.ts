@@ -35,7 +35,8 @@ export class FriendsListComponent implements OnInit {
 
   openNewFriend() {
     const dialogRef = this.dialog.open(FriendRequestComponent, {
-      width: '500px',
+      width: '100%',
+      height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -46,7 +47,8 @@ export class FriendsListComponent implements OnInit {
 
   openSolicitation() {
     const dialogRef = this.dialog.open(FriendsSolicitationComponent, {
-      width: '500px',
+      width: '100%',
+      height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {

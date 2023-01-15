@@ -1,10 +1,10 @@
-import { ValidadeBetComponent } from './../../components/validade-bet/validade-bet.component';
-import { NewBetUserComponent } from './../../components/new-bet-user/new-bet-user.component';
+import { ValidadeBetComponent } from '../../components/bets/validade-bet/validade-bet.component';
+import { NewBetUserComponent } from '../../components/bets/new-bet-user/new-bet-user.component';
 import { BetsService } from './../../service/bets/bets.service';
 import { NewBetComponent } from './../../new-bet/new-bet.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { NewModerateBetComponent } from 'src/app/new-moderate-bet/new-moderate-bet.component';
+import { NewModerateBetComponent } from 'src/app/components/bets/new-moderate-bet/new-moderate-bet.component';
 import { UsersService } from 'src/app/service/user/users.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
 })
 export class BetsComponent implements OnInit {
 
-  betsList : any;
+  betsList: any;
 
   userId: any;
   idGroup: any;
@@ -28,60 +28,34 @@ export class BetsComponent implements OnInit {
     private toastrService: ToastrService,
     private betService: BetsService,
     private route: ActivatedRoute
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.userId = localStorage.getItem('userId')
     this.routeSub = this.route.params.subscribe(params => {
-      console.log(params) //log the entire params object
-      console.log(params['id']) //log the value of id
       this.idGroup = params['id']
     });
     this.getAllBets();
-
-
-    console.log(this.betsList)
   }
 
   openNewBetManagement() {
     const dialogRef = this.dialog.open(NewModerateBetComponent, {
-      width: '500px',
-      height: '500px',
+      width: '100%',
+      height: 'auto',
       data: {
         idGroup: this.idGroup
       },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getAllBets();
     });
   }
-
-  newBet() {
-    const dialogRef = this.dialog.open(NewBetComponent, {
-      width: '500px',
-      height: '500px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  // getAllBets() {
-  //   this.userService.findBetsById(this.userId).subscribe((res:any) => {
-  //       console.log(res);
-  //       this.betsList = res;
-  //   }, (err) => {
-  //     this.toastrService.error('Erro', 'Erro ao carregar usuário');
-
-  //   })
-  // }
 
   getAllBets() {
-    this.betService.getAllBetsByGruoup(this.idGroup).subscribe((res:any) => {
-        console.log(res);
-        this.betsList = res;
+    this.betService.getAllBetsByGruoup(this.idGroup).subscribe((res: any) => {
+      console.log(res);
+      this.betsList = res;
     }, (err) => {
       this.toastrService.error('Erro', 'Erro ao carregar usuário');
 
@@ -90,29 +64,38 @@ export class BetsComponent implements OnInit {
 
   openBetUser(bet: any) {
     const dialogRef = this.dialog.open(NewBetUserComponent, {
-      width: '500px',
-      height: '500px',
+      width: 'auto',
+      height: 'auto',
       data: {
         bet: bet
       },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
   openValidateBet(bet: any) {
     const dialogRef = this.dialog.open(ValidadeBetComponent, {
-      width: '500px',
-      height: '500px',
+      width: 'auto',
+      height: 'auto',
       data: {
         bet: bet
       },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getAllBets();
     });
+  }
+
+  deleteBet(id: number) {
+    this.betService.getAllBetsByGruoup(this.idGroup).subscribe((res: any) => {
+      console.log(res);
+      this.betsList = res;
+    }, (err) => {
+      this.toastrService.error('Erro', 'Erro ao carregar usuário');
+
+    })
   }
 }
