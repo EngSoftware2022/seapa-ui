@@ -38,7 +38,7 @@ export class FriendsSolicitationComponent implements OnInit {
     this.friendService.aceptRequest(id).subscribe((res:any) => {
       console.log(res);
     }, (err) => {
-      this.toastrService.error('Erro', 'Erro ao aceitar o convite de amizade');
+      // this.toastrService.error('Erro', 'Erro ao aceitar o convite de amizade');
 
     })
   }
@@ -47,7 +47,7 @@ export class FriendsSolicitationComponent implements OnInit {
     this.friendService.rejectRequest(id).subscribe((res:any) => {
       console.log(res);
     }, (err) => {
-      this.toastrService.error('Erro', 'Erro ao rejeitar o convite de amizade');
+      // this.toastrService.error('Erro', 'Erro ao rejeitar o convite de amizade');
     })
   }
 }

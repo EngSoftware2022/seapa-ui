@@ -39,7 +39,6 @@ export class FriendRequestComponent implements OnInit {
     console.log(this.formBusca.get('userName').value)
     this.userService.findUser(this.formBusca.get('userName').value).subscribe((res:any) => {
       this.friendList = res;
-      console.log(res)
     })
   }
 
