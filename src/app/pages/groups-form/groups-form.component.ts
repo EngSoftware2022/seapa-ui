@@ -1,7 +1,9 @@
+import { GroupService } from './../../service/group/group.service';
 import { UsersService } from './../../service/user/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { FriendsService } from 'src/app/service/friends/friends.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-groups-form',
@@ -25,6 +27,8 @@ export class GroupsFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private friendService: FriendsService ,
+    private toastrService: ToastrService,
+    private groupService: GroupService,
     private userService: UsersService) { }
 
   ngOnInit(): void {
@@ -36,24 +40,44 @@ export class GroupsFormComponent implements OnInit {
   initForm() {
     this.formBusca =  this.formBuilder.group({
       nomeEquipe: ['', Validators.required],
-      teams: ['']
+    })
+  }
+
+
+
+  getAllFriends() {
+    this.friendService.getAllFriends(this.userId).subscribe((res:any) => {
+        console.log(res);
+        this.listFriends = res;
+    },(err)=> {
+      this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');
     })
   }
 
   onSubmit() {
-    console.log(this.formBusca.value)
+    const body = {
+        "moderadorId": this.userId,
+        "nomeGrupo": this.formBusca.get('nomeEquipe').value
+    }
+        this.groupService.createGroup(body).subscribe((res:any) => {
+          console.log(res);
+          this.listFriends = res;
+      },(err)=> {
+        this.toastrService.error('Erro', 'Erro ao criar grupo de amigos');
+      })
   }
 
-  getAllFriends() {
-    this.userService.findUser(this.userId).subscribe((res:any) => {
-        console.log(res);
-        this.listFriends = res;
-    })
-  }
+  // createCenterBet() {
+  //   this.groupService.newCenter(body).subscribe((res:any) => {
+  //     console.log(res);
+  //     this.listFriends = res;
+  // },(err)=> {
+  //   this.toastrService.error('Erro', 'Erro ao criar grupo de amigos');
+  // })
 
-  saveGroup() {
-
-  }
 
 
 }
+  
+
+

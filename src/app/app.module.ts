@@ -1,3 +1,6 @@
+import { AddUserGroupComponent } from './pages/add-user-group/add-user-group.component';
+import { ControlCenterBetsComponent } from './pages/control-center-bets/control-center-bets.component';
+import { DepositComponent } from './components/wallet/deposit/deposit.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,7 +31,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FriendsSolicitationComponent } from './components/friends-solicitation/friends-solicitation.component';
 import { BetsComponent } from './pages/bets/bets.component';
-import { NewModerateBetComponent } from './new-moderate-bet/new-moderate-bet.component';
+import { NewModerateBetComponent } from './components/bets/new-moderate-bet/new-moderate-bet.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { NewBetComponent } from './new-bet/new-bet.component';
@@ -36,6 +39,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FriendsListComponent } from './pages/friends-list/friends-list.component'; 
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatBadgeModule} from '@angular/material/badge';
+import { WithdrawComponent } from './components/wallet/withdraw/withdraw.component'; 
+import { MatCardModule } from '@angular/material/card';
+import { RequestGroupComponent } from './components/request-group/request-group.component';
+import { NewBetUserComponent } from './components/bets/new-bet-user/new-bet-user.component';
+import { ValidadeBetComponent } from './components/bets/validade-bet/validade-bet.component';
+
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -58,7 +68,14 @@ const maskConfig: Partial<IConfig> = {
       NewBetComponent,
       ProfileComponent,
       EditUserComponent,
-      FriendsListComponent
+      FriendsListComponent,
+      DepositComponent,
+      WithdrawComponent,
+      ControlCenterBetsComponent,
+      AddUserGroupComponent,
+      RequestGroupComponent,
+      NewBetUserComponent,
+      ValidadeBetComponent
    ],
   imports: [
     BrowserModule,
@@ -90,7 +107,9 @@ const maskConfig: Partial<IConfig> = {
     MatSlideToggleModule,
     MatRadioModule,
     MatFormFieldModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatBadgeModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

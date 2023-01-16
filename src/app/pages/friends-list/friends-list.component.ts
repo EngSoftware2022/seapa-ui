@@ -14,6 +14,7 @@ import { FriendRequestComponent } from '../friend-request/friend-request.compone
 export class FriendsListComponent implements OnInit {
   userId: any;
   listFriends: any;
+  friendSolicitationList:any;
 
 
   constructor(private _bottomSheetRef: MatBottomSheetRef<FriendsListComponent>,
@@ -29,12 +30,13 @@ export class FriendsListComponent implements OnInit {
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
     this.getAllFriends();
-
+    this.getAllSolicitation();
   }
 
   openNewFriend() {
     const dialogRef = this.dialog.open(FriendRequestComponent, {
-      width: '500px',
+      width: '100%',
+      height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -45,7 +47,8 @@ export class FriendsListComponent implements OnInit {
 
   openSolicitation() {
     const dialogRef = this.dialog.open(FriendsSolicitationComponent, {
-      width: '500px',
+      width: '100%',
+      height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -69,6 +72,17 @@ export class FriendsListComponent implements OnInit {
   },(err)=> {
     this.toastrService.error('Erro', 'Erro ao carregar lista de amigos');
   })
+  }
+
+  getAllSolicitation() {
+    this.friendService.getAllRequest(this.userId).subscribe((res:any) => {
+      this.friendSolicitationList = res;
+
+      console.log(res);
+    }, (err) => {
+      this.toastrService.error('Erro', 'Erro ao carregar convites de amizade');
+
+    })
   }
 
 

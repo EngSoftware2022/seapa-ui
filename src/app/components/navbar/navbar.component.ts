@@ -1,7 +1,7 @@
 import { FriendsListComponent } from './../../pages/friends-list/friends-list.component';
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { LoginComponent } from 'src/app/pages/login/login.component';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { FriendRequestComponent } from 'src/app/pages/friend-request/friend-request.component';
 import { FriendsSolicitationComponent } from '../friends-solicitation/friends-solicitation.component';
 import { FriendsService } from 'src/app/service/friends/friends.service';
@@ -17,13 +17,18 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
 
   userId!: any;
   showFiller = false;
 
-  user: any;
-  wallet: any;
+  user: any = {
+    "nomeUsuario": '',
+  };
+
+  wallet: any = {
+    "saldo": ""
+  };
 
   constructor(public dialog: MatDialog,
     private router: Router,
@@ -36,7 +41,7 @@ export class NavbarComponent implements OnInit{
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
     console.log(this.userId)
-    if(this.userId) {
+    if (this.userId) {
       this.getCurrentUser();
       this.getCurrentMoney();
     }
@@ -49,9 +54,9 @@ export class NavbarComponent implements OnInit{
 
 
   getCurrentUser() {
-    this.userService.findUserById(this.userId).subscribe((res:any) => {
-        console.log(res);
-        this.user = res;
+    this.userService.findUserById(this.userId).subscribe((res: any) => {
+      console.log(res);
+      this.user = res;
 
     }, (err) => {
       this.toastrService.error('Erro', 'Erro ao carregar usuário');
@@ -60,9 +65,9 @@ export class NavbarComponent implements OnInit{
   }
 
   getCurrentMoney() {
-    this.walletService.getBalance(this.userId).subscribe((res:any) => {
-        console.log(res);
-        this.wallet= res;
+    this.walletService.getBalance(this.userId).subscribe((res: any) => {
+      console.log(res);
+      this.wallet = res;
     }, (err) => {
       this.toastrService.error('Erro', 'Erro ao carregar saldo atual');
     })
@@ -71,7 +76,8 @@ export class NavbarComponent implements OnInit{
 
   openNewFriend() {
     const dialogRef = this.dialog.open(FriendRequestComponent, {
-      width: '500px',
+      width: '100%',
+      height: 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -82,7 +88,8 @@ export class NavbarComponent implements OnInit{
 
   openSolicitation() {
     const dialogRef = this.dialog.open(FriendsSolicitationComponent, {
-      width: '500px',
+      width: '100%',
+      height: 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -93,7 +100,8 @@ export class NavbarComponent implements OnInit{
 
   logout() {
     localStorage.clear();
-    location.reload();
+    this.router.navigate(['']);
+
   }
 
 

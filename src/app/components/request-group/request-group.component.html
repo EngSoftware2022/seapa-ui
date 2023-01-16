@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Meus pedidos de grupo</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-nav-list>
+
+        <mat-list-item *ngFor="let item of requestList">
+            <mat-icon  matListIcon>group</mat-icon>
+            <span matLine> Grupo</span>
+            <button type="button" class="btn btn-primary" (click)="sendResponseRequest(item.grupo, true)" >Aceitar</button>
+            <button type="button" class="btn btn-primary" (click)="sendResponseRequest(item.grupo, true)" >Recusar</button>
+        </mat-list-item>
+    
+      </mat-nav-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button class="btn btn-outline-warning"  [mat-dialog-close]="true" >Cancelar</button>
+</mat-dialog-actions>

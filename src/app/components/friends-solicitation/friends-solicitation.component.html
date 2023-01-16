@@ -15,8 +15,18 @@
                             {{row.solicitanteNome}}
                         </td>
                         <td>
-                            <button class="bi bi-check"  data-toggle="tooltip" data-placement="top" (click)="acept(row.id)" title="Adicionar amigo"></button>
-                            <button class="bi bi-x-lg"  data-toggle="tooltip" data-placement="top" (click)="reject(row.id)" title="Adicionar amigo"></button>
+                            <button class="btn btn-primary"  data-toggle="tooltip" data-placement="top" (click)="acept(row.id)" title="Adicionar amigo">    
+                                <mat-icon>
+                                done
+                              </mat-icon>
+                              Adicionar amigo
+                            </button>
+                            <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" (click)="reject(row.id)" title="Adicionar amigo">
+                                <mat-icon>
+                                    close
+                                  </mat-icon>
+                                Recusar amizade
+                            </button>
 
                         </td>
                     </tr>
@@ -27,5 +37,5 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
+  <button mat-button class="btn btn-outline-warning"  [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
 </mat-dialog-actions>

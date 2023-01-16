@@ -41,25 +41,33 @@ export class GroupService {
   }
 
   getAlliAmAdmin(userId: number) {
-    return this.http.get<any>(this.apiURL + '/listaradministracao?idUsuario=' + userId);
+    return this.http.get<any>(this.apiURL + 'listaradministracao?idUsuario=' + userId);
   }
 
   getAllInvites(userId: number) {
-    return this.http.get<any>(this.apiURL + '/listarConvites?idUsuario=' + userId);
+    return this.http.get<any>(this.apiURL + 'listarConvites?idUsuario=' + userId);
   }
 
   getAllMembers(userId: number) {
-    return this.http.get<any>(this.apiURL + '/listarmembros?idUsuario=' + userId);
+    return this.http.get<any>(this.apiURL + 'listarmembros?idUsuario=' + userId);
   }
 
   getAllParticipation(userId: number) {
-    return this.http.get<any>(this.apiURL + '/listarparticipacao?idUsuario=' + userId);
+    return this.http.get<any>(this.apiURL + 'listarparticipacao?idUsuario=' + userId);
   }
 
   sendRequestToGroup(idGroup: number, idUser: number): Observable<any> {
     return this.http
       .post<any>(
-        this.apiURL + 'novomembro?idGrupo=' + idGroup + '&idConvidado' + idUser,
+        this.apiURL + 'novomembro?idGrupo=' + idGroup + '&idConvidado=' + idUser,
+        ''
+      )
+  }
+
+  newCenter(idGroup: number) {
+    return this.http
+      .put<any>(
+        this.apiURL + 'novaCentralDeGerenciamento?grupoId=' + idGroup + '&tipoEsporte= ',
         ''
       )
   }

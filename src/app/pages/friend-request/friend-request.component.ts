@@ -52,6 +52,8 @@ export class FriendRequestComponent implements OnInit {
   sendRequestFriend(friendId: number) {
     this.friendService.sendRequestToUser(this.userId,friendId).subscribe((res:any) => {
       this.toastrService.success('Sucesso', 'Solicitação enviada com sucesso');
+    }, (err)=> {
+      this.toastrService.error('Erro', 'Erro ao enviar solitação');
     })
   }
 

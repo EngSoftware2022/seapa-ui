@@ -1,3 +1,4 @@
+import { ControlCenterBetsComponent } from './pages/control-center-bets/control-center-bets.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { BetsComponent } from './pages/bets/bets.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path:  'group/bets/:id', component: BetsComponent },
   { path: 'profile', component: ProfileComponent},  
   { path: 'profile/edit', component: EditUserComponent},  
+  { path: 'central-bets/', component: ControlCenterBetsComponent},  
 
 ];
 

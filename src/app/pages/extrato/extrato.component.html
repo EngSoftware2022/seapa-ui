@@ -1,23 +1,33 @@
 <div class = "container">
-    <h1>Extrato</h1>
-    <br>
-    <br>
+    <div class="row">
+        <div class="col">
+            <h1>Extrato</h1>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="deposit()" >Deposito</button>
+            <button type="button" class="btn btn-primary" (click)="withdraw()" >Saque</button>
+        </div>
+    </div>
     <div id="datatable">
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Saldo</th>
                         <th scope="col">Data</th>
+                        <th scope="col">Tipo movimentação</th>
+                        <th scope="col">Valor movimentado</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let row of saldos; index as i">
+                    <tr *ngFor="let row of saldo; index as i">
                         <td>
-                            {{row.saldo}}
+                            {{row.dataUltimaModificacao | date: 'dd/MM/yyyy'}}
                         </td>
                         <td>
-                            {{row.data}}
+                            {{row.tipoMovimentacao}}
+                        </td>
+                        <td>
+                            {{row.valorMovimentacao}}
                         </td>
                     </tr>
                 </tbody>

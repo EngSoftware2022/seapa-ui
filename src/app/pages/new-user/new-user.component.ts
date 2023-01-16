@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { UsersService } from 'src/app/service/user/users.service';
 import { ExtratosService } from 'src/app/service/extrato/extratos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user',
@@ -16,6 +17,8 @@ export class NewUserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, 
     private toastrService: ToastrService,
     private userService: UsersService, 
+    private router: Router,
+
     ) { }
   createNewUser(user: User) {
     this.formNewUser =  this.formBuilder.group({
@@ -24,7 +27,7 @@ export class NewUserComponent implements OnInit {
       userName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      cpf: ['', Validators.required],
+      cpf: [''],
       birthday: ['', Validators.required],
       phone: ['', Validators.required],
       passwordVerify: ['', Validators.required],
@@ -37,11 +40,12 @@ export class NewUserComponent implements OnInit {
   }
 
   onSubmit() {
-    if(!this.formNewUser.valid) {
-      this.toastrService.error('Erro', 'Necessário preencher todas as informações');
-      return;
+    console.log(this.formNewUser);
+    // if(!this.formNewUser.valid) {
+    //   this.toastrService.error('Erro', 'Necessário preencher todas as informações');
+    //   return;
 
-    }
+    // }
 
     if (this.formNewUser.get('password').value !== this.formNewUser.get('passwordVerify').value  ) {
       this.toastrService.error('Erro', 'Senha diferentes!');
@@ -50,6 +54,7 @@ export class NewUserComponent implements OnInit {
 
     this.userService.createUser(this.createObjRequest()).subscribe((res) => {
       this.toastrService.success('Sucesso', 'Usuário criado com sucesso');
+      
     },  (err) => {
       console.log(err);
       this.toastrService.error('Erro', 'Erro ao tentar salvar usuário');

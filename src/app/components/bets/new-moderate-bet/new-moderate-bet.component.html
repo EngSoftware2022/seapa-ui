@@ -1,0 +1,106 @@
+<h2 mat-dialog-title>Nova aposta</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="formModerateBet">
+    <div class="row">
+      <div class="col">
+        <label for="formGroupExampleInput">Aposta*</label>
+        <input type="search" class="form-control" id="datatable-search-input" placeholder="Descrição da aposta"
+          formControlName="event" required="true">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">Valor aposta*</label>
+        <input type="number" class="form-control" id="datatable-search-input" placeholder="Valor da aposta"
+          formControlName="value" required="true">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="formGroupExampleInput">Data de inicio*</label>
+        <input type="date" class="form-control" id="formInputBirthday" placeholder="Data inicio"
+          formControlName="dateInit" placeholder="dd-mm-yyyy" required>
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">Data de encerramento*</label>
+        <input type="date" class="form-control" id="formInputBirthday" placeholder="Data fim"
+          formControlName="dateEnd" placeholder="dd-mm-yyyy" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-slide-toggle class="example-margin" formControlName="managementType">
+          Autogerenciavel?
+        </mat-slide-toggle>
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">Tipo de aposta*</label>
+        <mat-radio-group aria-label="Select an option" formControlName="tipoAposta" >
+          <mat-radio-button value="BISTATE">Bistate</mat-radio-button>
+          <mat-radio-button value="RANGE">Range</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="row" *ngIf="formModerateBet.controls['tipoAposta'].value === 'BISTATE'" >
+      <div class="col">
+        <label for="formGroupExampleInput">Opção 1*</label>
+        <input type="search" class="form-control" id="datatable-search-input" placeholder="Descrição da aposta"
+          formControlName="optionOne" required="true">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">Opção 2*</label>
+        <input type="search" class="form-control" id="datatable-search-input" placeholder="Descrição da aposta"
+          formControlName="optionTwo" required="true">
+      </div>
+
+    </div>
+
+    <div class="row" *ngIf="formModerateBet.controls['tipoAposta'].value === 'RANGE'" >
+      <div class="col">
+        <label for="formGroupExampleInput">Opção 1*</label>
+        <input type="search" class="form-control" id="datatable-search-input" placeholder="Opção 1"
+          formControlName="optionOne" required="true">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">Opção 2*</label>
+        <input type="search" class="form-control" id="datatable-search-input" placeholder="Opção 2"
+          formControlName="optionTwo" required="true">
+      </div>
+      <button class="btn btn-primary" (click)="addOption()"  mat-button>Apostar</button>
+
+
+    <div class="table-responsive">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">Opção 1</th>
+                  <th scope="col">Opção 2</th>
+                  <th scope="col">Ações</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let row of options; index as i">
+                  <td>
+                      {{row.primeiraOpcao}}
+                  </td>
+                  <td>
+                    {{row.segundaOpcao}}
+                </td>
+                <td>
+                  <button class="btn btn-primary" (click)="deleteOption(i)"  mat-button>Deletar</button>
+                </td>
+
+              </tr>
+
+          </tbody>
+      </table>
+  </div>
+  </div>
+
+  </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button class="btn btn-outline-warning" [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
+  <button mat-button class="btn btn-primary"  [mat-dialog-close]="true" cdkFocusInitial (click)="createCenterBet()">Criar aposta</button>
+</mat-dialog-actions>

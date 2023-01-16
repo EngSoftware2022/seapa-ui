@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('userId')) {
       this.router.navigate(['group']);
     }
+    console.log(this.fbLogin);
+
   }
 
   onSubmit() {
@@ -44,11 +46,11 @@ export class LoginComponent implements OnInit {
   }
 
   initForm() {
+    console.log(this.fbLogin);
     this.fbLogin =  this.formBuilder.group({
       login: ['', Validators.required],
       password: ['', Validators.required],
     })
-    console.log(this.fbLogin)
   }
 
 }

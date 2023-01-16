@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Saque</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="formBusca">
+    <div class="row">
+        <div class="col">
+            <label>Valor:</label>
+            <input type="number" class="form-control" id="datatable-search-input" 
+                placeholder="Insira o valor para saque" formControlName="value" required="true">
+        </div>
+    </div>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button class="btn btn-outline-warning"  [mat-dialog-close]="true" cdkFocusInitial>Fechar</button>
+  <button mat-button class="btn btn-primary"  (click)="onSubmit()"  cdkFocusInitial>Salvar</button>
+
+</mat-dialog-actions>
