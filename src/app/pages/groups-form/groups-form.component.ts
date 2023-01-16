@@ -15,13 +15,6 @@ export class GroupsFormComponent implements OnInit {
   formBusca: any;
   
   selectedCar: number | undefined;
-  cars = [
-      { id: 1, name: 'Volvo' },
-      { id: 2, name: 'Saab' },
-      { id: 3, name: 'Opel' },
-      { id: 4, name: 'Audi' },
-  ];
-
   listFriends: any;
   userId!: any;
 
@@ -66,16 +59,6 @@ export class GroupsFormComponent implements OnInit {
         this.toastrService.error('Erro', 'Erro ao criar grupo de amigos');
       })
   }
-
-  // createCenterBet() {
-  //   this.groupService.newCenter(body).subscribe((res:any) => {
-  //     console.log(res);
-  //     this.listFriends = res;
-  // },(err)=> {
-  //   this.toastrService.error('Erro', 'Erro ao criar grupo de amigos');
-  // })
-
-
 
 }
   
