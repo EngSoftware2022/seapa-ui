@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { UsersService } from 'src/app/service/user/users.service';
 import { ExtratosService } from 'src/app/service/extrato/extratos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user',
@@ -16,6 +17,8 @@ export class NewUserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, 
     private toastrService: ToastrService,
     private userService: UsersService, 
+    private router: Router,
+
     ) { }
   createNewUser(user: User) {
     this.formNewUser =  this.formBuilder.group({
@@ -51,6 +54,7 @@ export class NewUserComponent implements OnInit {
 
     this.userService.createUser(this.createObjRequest()).subscribe((res) => {
       this.toastrService.success('Sucesso', 'Usuário criado com sucesso');
+      
     },  (err) => {
       console.log(err);
       this.toastrService.error('Erro', 'Erro ao tentar salvar usuário');

@@ -1,6 +1,6 @@
 import { AddUserGroupComponent } from './pages/add-user-group/add-user-group.component';
 import { ControlCenterBetsComponent } from './pages/control-center-bets/control-center-bets.component';
-import { DepositComponent } from './components/deposit/deposit.component';
+import { DepositComponent } from './components/wallet/deposit/deposit.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,7 +40,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { FriendsListComponent } from './pages/friends-list/friends-list.component'; 
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatBadgeModule} from '@angular/material/badge';
-import { WithdrawComponent } from './components/withdraw/withdraw.component'; 
+import { WithdrawComponent } from './components/wallet/withdraw/withdraw.component'; 
 import { MatCardModule } from '@angular/material/card';
 import { RequestGroupComponent } from './components/request-group/request-group.component';
 import { NewBetUserComponent } from './components/bets/new-bet-user/new-bet-user.component';

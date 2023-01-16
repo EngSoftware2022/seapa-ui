@@ -26,6 +26,10 @@ export class GroupsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
+
+    if(!this.userId) {
+      
+    }
     this.getAllGroups();
     this.getRequestGroup();
 

@@ -4,11 +4,11 @@ import { ToastrService } from 'ngx-toastr';
 import { ExtratosService } from 'src/app/service/extrato/extratos.service';
 
 @Component({
-  selector: 'app-deposit',
-  templateUrl: './deposit.component.html',
-  styleUrls: ['./deposit.component.scss']
+  selector: 'app-withdraw',
+  templateUrl: './withdraw.component.html',
+  styleUrls: ['./withdraw.component.scss']
 })
-export class DepositComponent implements OnInit {
+export class WithdrawComponent implements OnInit {
 
   formBusca: any;
   userId: any;
@@ -29,16 +29,12 @@ export class DepositComponent implements OnInit {
   }
 
   onSubmit() {
-    this.extratoService.deposit(this.userId, this.formBusca.get('value').value).subscribe((res:any) => {
-      this.toastrService.success('Sucesso', 'Deposito realizado com sucesso');
-      console.log(res);
+    this.extratoService.withdraw(this.userId, this.formBusca.get('value').value).subscribe((res:any) => {
+      this.toastrService.success('Sucesso', 'Saque realizado com sucesso');
     }, (err) => {
-      this.toastrService.error('Erro', 'Erro ao carregar convites de amizade');
-  
+      this.toastrService.error('Erro', 'Erro ao realizar saque');
+
     })
   }
 
 }
-
-
-

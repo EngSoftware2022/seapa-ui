@@ -1,8 +1,9 @@
-import { WithdrawComponent } from './../../components/withdraw/withdraw.component';
-import { DepositComponent } from './../../components/deposit/deposit.component';
+import { WithdrawComponent } from '../../components/wallet/withdraw/withdraw.component';
+import { DepositComponent } from '../../components/wallet/deposit/deposit.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ExtratosService } from 'src/app/service/extrato/extratos.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-extrato',
@@ -16,6 +17,7 @@ export class ExtratoComponent implements OnInit {
   userId: any;
 
   constructor(public extratoService: ExtratosService,
+    private toastrService: ToastrService,
     public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -28,18 +30,18 @@ export class ExtratoComponent implements OnInit {
   getSaldos(){
     this.extratoService.getAllTransations(this.userId).subscribe(data => {
       this.saldo = data;
-      console.log(this.saldo);
+    }, (err: any)=> {
+      this.toastrService.error('Erro', 'Erro ao carregar lista de transferência');
     });
   }
 
   deposit() {
     const dialogRef = this.dialog.open(DepositComponent, {
-      width: '100%',
+      width: 'auto',
       height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
        this.getSaldos();
     });
 
@@ -47,12 +49,11 @@ export class ExtratoComponent implements OnInit {
 
   withdraw() {
     const dialogRef = this.dialog.open(WithdrawComponent, {
-      width: '100%',
+      width: 'auto',
       height : 'auto',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
       this.getSaldos();
     });
   }
