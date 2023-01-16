@@ -2,8 +2,8 @@ import { FriendsListComponent } from './../../pages/friends-list/friends-list.co
 import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { LoginComponent } from 'src/app/pages/login/login.component';
 import { MatDialog } from '@angular/material/dialog';
-import { FriendRequestComponent } from 'src/app/pages/friend-request/friend-request.component';
-import { FriendsSolicitationComponent } from '../friends-solicitation/friends-solicitation.component';
+import { FriendRequestComponent } from 'src/app/components/friends/friend-request/friend-request.component';
+import { FriendsSolicitationComponent } from '../friends/friends-solicitation/friends-solicitation.component';
 import { FriendsService } from 'src/app/service/friends/friends.service';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/service/user/users.service';
