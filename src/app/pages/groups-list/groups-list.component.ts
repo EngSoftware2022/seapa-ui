@@ -26,10 +26,6 @@ export class GroupsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')
-
-    if(!this.userId) {
-      
-    }
     this.getAllGroups();
     this.getRequestGroup();
 
@@ -37,7 +33,7 @@ export class GroupsListComponent implements OnInit {
 
   openNewGroup() {
     const dialogRef = this.dialog.open(GroupsFormComponent, {
-      width: '100%',
+      width: 'auto',
       height : 'auto',
     });
 
@@ -49,7 +45,6 @@ export class GroupsListComponent implements OnInit {
 
   getAllGroups() {
     this.groupService.getAllParticipation(this.userId).subscribe((res:any) => {
-        console.log(res);
         this.groupList = res;
     },(err)=> {
       this.toastrService.error('Erro', 'Erro ao carregar lista de grupos');
@@ -58,15 +53,14 @@ export class GroupsListComponent implements OnInit {
 
     openModalAddParticipante(idGroup: number) {
       const dialogRef = this.dialog.open(AddUserGroupComponent, {
-        width: '100%',
-        height : 'auto',
+        width: '330px',
+        height : '400px',
         data: {
           idGroup: idGroup
         },
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
         this.getAllGroups();
         this.getRequestGroup();
       });
@@ -74,7 +68,6 @@ export class GroupsListComponent implements OnInit {
 
     getRequestGroup() {
       this.groupService.getAllInvites(this.userId).subscribe((res:any) => {
-        console.log(res);
         this.requestList = res;
      },(err)=> {
         this.toastrService.error('Erro', 'Erro ao carregar lista de solicitações');
@@ -83,12 +76,11 @@ export class GroupsListComponent implements OnInit {
 
     showRequestGroup() {
       const dialogRef = this.dialog.open(RequestGroupComponent, {
-        width: '100%',
+        width: 'auto',
         height : 'auto',
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
         this.getAllGroups();
       });
     }
